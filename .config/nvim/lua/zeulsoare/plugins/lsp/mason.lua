@@ -25,6 +25,7 @@ mason_lspconfig.setup({
 		"tsserver",
 		"html",
 		"cssls",
+		"tailwindcss",
 		-- Misc programming languages
 		"sumneko_lua", -- lua lsp
 		"bashls", -- bash lsp

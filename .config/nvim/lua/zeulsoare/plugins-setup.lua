@@ -139,6 +139,9 @@ return packer.startup({
 			requires = "kyazdani42/nvim-web-devicons",
 		})
 
+		-- markdown live preview inside nvim
+		use({ "ellisonleao/glow.nvim" })
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
