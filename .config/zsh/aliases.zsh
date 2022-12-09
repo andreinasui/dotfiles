@@ -5,7 +5,7 @@ alias nvpn=nordvpn
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
-alias rm='rm -i'
+# alias rm='rm -i'
 
 # configuration files aliases
 alias zshconf='$EDITOR $ZDOTDIR/.zshrc'
