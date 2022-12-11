@@ -105,9 +105,7 @@ return packer.startup({
 		use("rafamadriz/friendly-snippets")
 
 		-- LSP
-		use("williamboman/mason.nvim")
-		use("williamboman/mason-lspconfig.nvim")
-		use("neovim/nvim-lspconfig")
+		use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
 		use({ "glepnir/lspsaga.nvim", branch = "main" })
 		use("jose-elias-alvarez/typescript.nvim")
 		use("onsails/lspkind.nvim")
@@ -146,10 +144,4 @@ return packer.startup({
 			require("packer").sync()
 		end
 	end,
-	config = {
-		profile = {
-			enable = true,
-			threshold = 1, -- the amount in ms that a plugin's load time must be over for it to be included in the profile
-		},
-	},
 })

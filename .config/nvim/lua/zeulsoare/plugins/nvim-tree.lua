@@ -37,7 +37,7 @@ nvimtree.setup({
 		},
 	},
 	view = {
-		adaptive_size = true,
+		adaptive_size = false,
 		mappings = {
 			list = {
 				-- unbind default cd keybind

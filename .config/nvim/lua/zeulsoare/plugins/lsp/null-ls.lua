@@ -33,6 +33,9 @@ null_ls.setup({
 		}),
 		require("typescript.extensions.null-ls.code-actions"),
 	},
+	on_init = function(new_client, _)
+		new_client.offset_encoding = "utf-8"
+	end,
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
 		if current_client.supports_method("textDocument/formatting") then

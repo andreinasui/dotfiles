@@ -51,36 +51,17 @@ capabilities.textDocument.foldingRange = {
 	lineFoldingOnly = true,
 }
 
--- configure bash server
-lspconfig["bashls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- set debug log level to lsp
+vim.lsp.set_log_level("debug")
 
--- configure typescript server with plugin
-typescript.setup({
-	server = {
+-- configure multiple servers
+local servers = { "clangd", "cmake", "bashls", "html", "cssls", "tailwindcss" }
+for _, server in pairs(servers) do
+	lspconfig[server].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-	},
-})
-
--- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+	})
+end
 
 -- configure emmet language server
 -- lspconfig["emmet_ls"].setup({
