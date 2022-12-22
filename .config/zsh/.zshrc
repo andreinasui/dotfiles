@@ -32,6 +32,7 @@ fi
 
 # Source custom aliases
 source "$ZDOTDIR/aliases.zsh"
+source "$HOME/.aliases"
 
 # ZSH functions path
 fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_functions

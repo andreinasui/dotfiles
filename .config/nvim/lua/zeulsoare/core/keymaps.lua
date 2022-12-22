@@ -59,13 +59,16 @@ keymap_normal("<leader>to", ":tabnew<CR>") -- open new tab
 keymap_normal("<leader>tx", ":tabclose<CR>") -- close current tab
 keymap_normal("<leader>tn", ":tabn<CR>") -- go to next tab
 keymap_normal("<leader>tp", ":tabp<CR>") -- go to previous tab
+keymap_normal("<M-l>", ":tabn<CR>") -- go to next tab
+keymap_normal("<M-h>", ":tabp<CR>") -- go to previous tab
 keymap_normal("<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap_normal("<leader>ff", "<cmd>Telescope find_files<CR>")
-keymap_normal("<leader>fs", "<cmd>Telescope live_grep<CR>")
+keymap_normal("<leader>fs", "<cmd>Telescope live_grep_args<CR>")
 keymap_normal("<leader>fc", "<cmd>Telescope grep_string<CR>")
 keymap_normal("<leader>fb", "<cmd>Telescope buffers<CR>")
 keymap_normal("<leader>fh", "<cmd>Telescope help_tags<CR>")
 keymap_normal("<leader>fx", "<cmd>Telescope diagnostics<CR>")
+keymap_normal("<leader>fp", "<cmd>Telescope project project<CR>")
 keymap_normal("<leader>xx", "<cmd>TroubleToggle<CR>")
 keymap_normal("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
 keymap_normal("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
@@ -74,8 +77,8 @@ keymap_normal("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
 keymap_normal("gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
 -- Move text up and down
-keymap_normal("<A-k>", "<Esc>:m .-2<CR>")
-keymap_normal("<A-j>", "<Esc>:m .+1<CR>")
+keymap_normal("<A-k>", ":m .-2<CR>==")
+keymap_normal("<A-j>", ":m .+1<CR>==")
 
 -- Remap increment/decrement
 keymap_normal("+", "<C-a>")
@@ -88,20 +91,20 @@ keymap_normal("<C-u>", "<C-u>zz")
 -- keymap_normal("<leader>q", ":q<CR>")
 -- keymap_normal("<leader>qa", ":qa<CR>")
 -- keymap_normal("<leader><leader>s", ":so<CR>")
+keymap_normal("<leader>y", '"+y') -- copy to system clipboard
+keymap_normal("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { noremap = true, silent = false })
 
 -- Visual --
 -- Stay in indent mode
 keymap_visual("<", "<gv")
 keymap_visual(">", ">gv")
-
 -- Move text up and down
-keymap_visual("<A-j>", ":m .+1<CR>==")
-keymap_visual("<A-k>", ":m .-2<CR>==")
+keymap_visual("<A-k>", ":move '<-2<CR>gv=gv")
+keymap_visual("<A-j>", ":move '>+1<CR>gv=gv")
 keymap_visual("p", '"_dP')
+keymap_visual("<leader>y", '"+y') -- copy to system clipboard
 
 -- Visual Block --
 -- Move text up and down
-keymap_visual_block("J", ":move '>+1<CR>gv-gv")
-keymap_visual_block("K", ":move '<-2<CR>gv-gv")
-keymap_visual_block("<A-j>", ":move '>+1<CR>gv-gv")
-keymap_visual_block("<A-k>", ":move '<-2<CR>gv-gv")
+keymap_visual_block("<A-k>", ":move '<-2<CR>gv=gv")
+keymap_visual_block("<A-j>", ":move '>+1<CR>gv=gv")

@@ -31,6 +31,7 @@ if ! zgenom saved; then
 
     # other plugins
     zgenom load zsh-users/zsh-syntax-highlighting
+    zgenom load zsh-users/zsh-completions
     zgenom load lukechilds/zsh-nvm
     zgenom load lukechilds/zsh-better-npm-completion
 

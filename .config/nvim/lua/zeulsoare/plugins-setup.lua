@@ -65,8 +65,6 @@ return packer.startup({
 				})
 			end,
 		})
-		use("vim-scripts/ReplaceWithRegister")
-
 		-- comment code
 		use({ "numToStr/Comment.nvim", requires = { "JoosepAlviste/nvim-ts-context-commentstring" } })
 
@@ -91,14 +89,19 @@ return packer.startup({
 		use({ "nvim-telescope/telescope-hop.nvim" })
 		use({ "nvim-telescope/telescope-file-browser.nvim" })
 		use({ "nvim-telescope/telescope-ui-select.nvim" })
+		use({ "nvim-telescope/telescope-live-grep-args.nvim" })
+		use({ "nvim-telescope/telescope-project.nvim" })
 
 		-- autocompletion
 		use("hrsh7th/nvim-cmp")
 		use("hrsh7th/cmp-buffer")
 		use("hrsh7th/cmp-path")
+		use("hrsh7th/cmp-cmdline")
 		use("hrsh7th/cmp-nvim-lsp")
 		use("hrsh7th/cmp-nvim-lua")
 		use("saadparwaiz1/cmp_luasnip")
+		use("lukas-reineke/cmp-under-comparator")
+		use("hrsh7th/cmp-nvim-lsp-signature-help")
 
 		-- snippets
 		use("L3MON4D3/LuaSnip")
@@ -137,9 +140,20 @@ return packer.startup({
 			requires = "kyazdani42/nvim-web-devicons",
 		})
 
-		-- markdown live preview inside nvim
-		use({ "ellisonleao/glow.nvim" })
+		-- css colors in nvim
+		use("norcalli/nvim-colorizer.lua")
 
+		-- markdown previewer
+		use({
+			"iamcco/markdown-preview.nvim",
+			run = function()
+				vim.fn["mkdp#util#install"]()
+			end,
+			setup = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+			end,
+			ft = { "markdown" },
+		})
 		if packer_bootstrap then
 			require("packer").sync()
 		end

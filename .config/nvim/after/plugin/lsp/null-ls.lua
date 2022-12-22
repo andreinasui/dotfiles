@@ -17,7 +17,7 @@ null_ls.setup({
 	-- setup formatters & linters
 	sources = {
 		-- code actions
-		code_actions.gitsigns,
+		-- code_actions.gitsigns,
 		code_actions.shellcheck,
 		--  formatters
 		--  to disable file types use
@@ -31,10 +31,10 @@ null_ls.setup({
 				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
 			end,
 		}),
-		require("typescript.extensions.null-ls.code-actions"),
+		-- require("typescript.extensions.null-ls.code-actions"),
 	},
 	on_init = function(new_client, _)
-		new_client.offset_encoding = "utf-8"
+		new_client.offset_encoding = "utf-32"
 	end,
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

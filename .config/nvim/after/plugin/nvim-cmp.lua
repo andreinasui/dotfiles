@@ -17,10 +17,12 @@ luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.config.set_config({
 	-- This tells LuaSnip to remember to keep around the last snippet.
 	-- You can jump back into it even if you move outside of the selection
-	history = true,
+	history = false,
 
 	-- This one is cool cause if ou have dynamic snippets, it updates as you type!
 	updateevents = "TextChanged,TextChangedI",
+	region_check_events = "InsertEnter",
+	delete_check_events = "InsertLeave",
 })
 
 local ok_lspkind, lspkind = pcall(require, "lspkind")
@@ -87,7 +89,7 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = "nvim_lua" },
-		{ name = "luasnip" },
+		{ name = "luasnip", max_item_count = 20, keyword_length = 3 },
 		{ name = "path" },
 		{
 			name = "nvim_lsp",
@@ -101,6 +103,37 @@ cmp.setup({
 				return true
 			end,
 		},
-		{ name = "buffer", priority = 0, keyword_length = 3 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "nvim_lsp_signature_help" },
+	}),
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			require("cmp-under-comparator").under,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
+	},
+})
+
+-- `/` cmdline setup.
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
 	}),
 })

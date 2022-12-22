@@ -1,8 +1,3 @@
-local status_ok, alpha = pcall(require, "alpha")
-if not status_ok then
-	return
-end
-
 local plugins_number = function()
 	if packer_plugins then
 		return string.format("  %d plugins  ", vim.tbl_count(packer_plugins))
@@ -35,7 +30,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("<leader>ff", "  Find file", ":Telescope find_files <CR>"),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("<leader>fo", "  Recently used files", ":Telescope oldfiles <CR>"),
-	dashboard.button("<leader>fs", "  Find text", ":Telescope live_grep <CR>"),
+	dashboard.button("<leader>fs", "  Find text", ":Telescope live_grep_args <CR>"),
 	dashboard.button("c", "  Configuration", ":e $MYVIMRC<CR>"),
 	dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
@@ -64,4 +59,4 @@ dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
-alpha.setup(dashboard.opts)
+require("alpha").setup(dashboard.opts)

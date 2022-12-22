@@ -5,7 +5,8 @@ local options = {
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
+	hlsearch = false, -- highlight all matches on previous search pattern
+	incsearch = true,
 	ignorecase = true, -- ignore case in search patterns
 	mouse = "a", -- allow the mouse to be used in neovim
 	pumheight = 10, -- pop up menu height
@@ -36,7 +37,7 @@ local options = {
 	linebreak = true, -- companion to wrap, don't split words
 	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
 	sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
-	whichwrap = "bs<>[]hl", -- which "horizontal" keys are allowed to travel to prev/next line
+	whichwrap = "bs<>[]", -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
 for k, v in pairs(options) do
@@ -44,4 +45,5 @@ for k, v in pairs(options) do
 end
 
 vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
+vim.opt.isfname:append("@-@")
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
