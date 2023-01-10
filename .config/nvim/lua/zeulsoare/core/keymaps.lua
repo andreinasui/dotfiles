@@ -72,14 +72,12 @@ keymap_normal("<leader>fp", "<cmd>Telescope project project<CR>")
 keymap_normal("<leader>xx", "<cmd>TroubleToggle<CR>")
 keymap_normal("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
 keymap_normal("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
-
+keymap_normal("<leader>cc", "<cmd>PickColor<CR>")
 -- Remap gx to open links because we unloaded netrw for nvim-tree
 keymap_normal("gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
-
 -- Move text up and down
 keymap_normal("<A-k>", ":m .-2<CR>==")
 keymap_normal("<A-j>", ":m .+1<CR>==")
-
 -- Remap increment/decrement
 keymap_normal("+", "<C-a>")
 keymap_normal("-", "<C-x>")

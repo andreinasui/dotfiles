@@ -132,7 +132,7 @@ return packer.startup({
 		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
 		-- git integration
-		use({ "lewis6991/gitsigns.nvim", tag = "release" }) -- show line modifications on left hand side
+		use({ "lewis6991/gitsigns.nvim" }) -- show line modifications on left hand side
 
 		-- diagnostics
 		use({
@@ -141,7 +141,8 @@ return packer.startup({
 		})
 
 		-- css colors in nvim
-		use("norcalli/nvim-colorizer.lua")
+		use("NvChad/nvim-colorizer.lua")
+		use({ "ziontee113/color-picker.nvim" })
 
 		-- markdown previewer
 		use({
@@ -154,6 +155,7 @@ return packer.startup({
 			end,
 			ft = { "markdown" },
 		})
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
