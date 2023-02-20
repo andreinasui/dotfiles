@@ -27,7 +27,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"tailwindcss",
 		-- Misc programming languages
-		"sumneko_lua", -- lua lsp
+		"lua_ls", -- lua lsp
 		"bashls", -- bash lsp
 		-- Misc filetypes lsp
 		"jsonls",
@@ -42,7 +42,6 @@ mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
 		"shellcheck", -- sh/bash linter
-		"clang-format", -- c/cpp formatter
 		"prettier", -- ts/js formatter
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
