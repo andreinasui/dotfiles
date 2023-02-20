@@ -1,6 +1,7 @@
+local lazy_stats = require("lazy").stats()
 local plugins_number = function()
-	if packer_plugins then
-		return string.format("  %d plugins  ", vim.tbl_count(packer_plugins))
+	if lazy_stats then
+		return string.format("  %d plugins  ", lazy_stats.count)
 	else
 		return ""
 	end

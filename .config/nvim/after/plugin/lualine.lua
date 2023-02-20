@@ -1,10 +1,4 @@
-local ok, lualine = pcall(require, "lualine")
-if not ok then
-	vim.notify("Problem with requiring lualine", vim.log.levels.ERROR)
-	return
-end
-
-lualine.setup({
+require("lualine").setup({
 	options = {
 		theme = vim.g.zeulsoare_colorscheme,
 	},
