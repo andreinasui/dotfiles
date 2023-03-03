@@ -16,6 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 -- it is working as expected
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- Disable netrw - recommended by NvimTree documentation
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 require("lazy").setup({
 	-- lua functions that many plugins use

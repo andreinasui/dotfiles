@@ -1,15 +1,6 @@
 -- For default mappings see:
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
-local ok, nvimtree = pcall(require, "nvim-tree")
-if not ok then
-	return
-end
-
--- recommended settings from nvim-tree documentation
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
-
-nvimtree.setup({
+require("nvim-tree").setup({
 	renderer = {
 		highlight_git = true,
 		icons = {
