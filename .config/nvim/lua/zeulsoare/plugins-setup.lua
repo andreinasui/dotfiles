@@ -24,9 +24,6 @@ require("lazy").setup({
 	-- lua functions that many plugins use
 	"nvim-lua/plenary.nvim",
 
-	-- speed up nvim load
-	"lewis6991/impatient.nvim",
-
 	-- dashboard (startup page)
 	{
 		"goolord/alpha-nvim",
@@ -61,6 +58,8 @@ require("lazy").setup({
 
 	-- status line
 	"nvim-lualine/lualine.nvim",
+  -- buffer line
+  "akinsho/bufferline.nvim",
 
 	-- telescope
 	{
