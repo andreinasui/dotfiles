@@ -57,7 +57,7 @@ keymap_normal("<leader>tp", ":tabp<CR>") -- go to previous tab
 keymap_normal("<M-l>", ":tabn<CR>") -- go to next tab
 keymap_normal("<M-h>", ":tabp<CR>") -- go to previous tab
 keymap_normal("<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-keymap_normal("<leader>ff", "<cmd>Telescope find_files<CR>")
+keymap_normal("<leader>ff", "<cmd>Telescope find_files hidden=true<CR>")
 keymap_normal("<leader>fs", "<cmd>Telescope live_grep_args<CR>")
 keymap_normal("<leader>fc", "<cmd>Telescope grep_string<CR>")
 keymap_normal("<leader>fb", "<cmd>Telescope buffers<CR>")

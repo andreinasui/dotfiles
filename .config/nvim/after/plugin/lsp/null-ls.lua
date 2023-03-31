@@ -22,8 +22,17 @@ null_ls.setup({
 		--  formatters
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-		formatting.prettier, -- js/ts formatter
+		formatting.prettier.with({
+			extra_args = { "--trailing-comma none" },
+		}), -- js/ts formatter
 		formatting.stylua, -- lua formatter
+		formatting.clang_format.with({ -- c/c++ formatter
+			-- only enable if root has .clang-format
+			condition = function(utils)
+				return utils.root_has_file(".clang-format") or utils.root_has_file("_clang-format")
+			end,
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+		}),
 		-- linters
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js
@@ -33,9 +42,9 @@ null_ls.setup({
 		}),
 		-- require("typescript.extensions.null-ls.code-actions"),
 	},
-	on_init = function(new_client, _)
-		new_client.offset_encoding = "utf-32"
-	end,
+	-- on_init = function(new_client, _)
+	-- 	new_client.offset_encoding = "utf-32"
+	-- end,
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
 		if current_client.supports_method("textDocument/formatting") then

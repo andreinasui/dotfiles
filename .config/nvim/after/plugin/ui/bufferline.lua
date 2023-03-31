@@ -1,7 +1,9 @@
 require("bufferline").setup({
 	options = {
+		mode = "tabs",
 		diagnostics = "nvim_lsp",
 		always_show_bufferline = false,
+		show_tab_indicators = true,
 		offsets = {
 			{
 				filetype = "NvimTree",
