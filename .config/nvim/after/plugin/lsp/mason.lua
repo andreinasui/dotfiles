@@ -42,9 +42,11 @@ mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
 		"shellcheck", -- sh/bash linter
+		"shfmt", -- sh/bash formatter
 		"prettier", -- ts/js formatter
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
+		"clang_format", -- c/c++ formatter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

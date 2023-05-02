@@ -25,6 +25,7 @@ null_ls.setup({
 		formatting.prettier.with({
 			extra_args = { "--trailing-comma none" },
 		}), -- js/ts formatter
+		formatting.shfmt, -- sh, bash formatter
 		formatting.stylua, -- lua formatter
 		formatting.clang_format.with({ -- c/c++ formatter
 			-- only enable if root has .clang-format
@@ -54,11 +55,11 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({
+						bufnr = bufnr,
+						timeout_ms = 5000,
 						filter = function(client)
-							--  only use null-ls for formatting instead of lsp server
 							return client.name == "null-ls"
 						end,
-						bufnr = bufnr,
 					})
 				end,
 			})

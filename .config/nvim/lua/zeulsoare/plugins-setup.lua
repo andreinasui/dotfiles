@@ -58,8 +58,8 @@ require("lazy").setup({
 
 	-- status line
 	"nvim-lualine/lualine.nvim",
-  -- buffer line
-  "akinsho/bufferline.nvim",
+	-- buffer line
+	"akinsho/bufferline.nvim",
 
 	-- telescope
 	{
@@ -69,7 +69,6 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			"nvim-telescope/telescope-rs.nvim",
 			"nvim-telescope/telescope-fzf-writer.nvim",
-			"nvim-telescope/telescope-packer.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
 			"nvim-telescope/telescope-github.nvim",
 			"nvim-telescope/telescope-symbols.nvim",
@@ -77,7 +76,6 @@ require("lazy").setup({
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
-			"nvim-telescope/telescope-project.nvim",
 		},
 	},
 
@@ -120,7 +118,6 @@ require("lazy").setup({
 		dependencies = {
 			"windwp/nvim-ts-autotag", -- autoclose tags
 			"nvim-treesitter/nvim-treesitter-refactor",
-			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 	},
 
