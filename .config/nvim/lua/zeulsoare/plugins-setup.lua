@@ -70,7 +70,6 @@ require("lazy").setup({
 			"nvim-telescope/telescope-rs.nvim",
 			"nvim-telescope/telescope-fzf-writer.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
-			"nvim-telescope/telescope-github.nvim",
 			"nvim-telescope/telescope-symbols.nvim",
 			"nvim-telescope/telescope-hop.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
@@ -125,6 +124,7 @@ require("lazy").setup({
 	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 
 	-- git integration
+	{ "tpope/vim-fugitive" }, -- git wrapper in neovim
 	{ "lewis6991/gitsigns.nvim" }, -- show line modifications on left hand side
 
 	-- diagnostics

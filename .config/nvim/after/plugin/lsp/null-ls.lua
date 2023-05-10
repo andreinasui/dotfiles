@@ -34,7 +34,9 @@ null_ls.setup({
 			end,
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 		}),
+		formatting.cmake_format, -- cmake formatter/linter
 		-- linters
+		diagnostics.cmake_lint, -- cmake linter
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js
 			condition = function(utils)

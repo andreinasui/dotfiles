@@ -47,6 +47,7 @@ mason_null_ls.setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"clang_format", -- c/c++ formatter
+		"cmakelang", -- cmake formatter/linter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
