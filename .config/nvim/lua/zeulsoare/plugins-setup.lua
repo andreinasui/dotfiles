@@ -148,4 +148,7 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
+
+	-- nvim session
+	{ "rmagatti/auto-session" },
 })

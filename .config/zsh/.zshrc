@@ -31,8 +31,8 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # Source custom aliases
-source "$ZDOTDIR/aliases.zsh"
-source "$HOME/.aliases"
+source "$ZDOTDIR/aliases.zsh" 2>/dev/null
+source "$HOME/.aliases" 2>/dev/null
 
 # ZSH functions path
 fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_functions
