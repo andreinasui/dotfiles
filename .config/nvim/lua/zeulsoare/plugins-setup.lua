@@ -111,7 +111,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = false })
 			ts_update()
 		end,
 		dependencies = {

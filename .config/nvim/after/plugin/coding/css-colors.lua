@@ -1,5 +1,14 @@
 require("colorizer").setup({
-	filetypes = { "css", "javascript", "javascriptreact", "typescript", "typescriptreact", html = { names = false } },
+	filetypes = {
+		"scss",
+		"sass",
+		"css",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		html = { names = false },
+	},
 	user_default_options = { css = true },
 })
 

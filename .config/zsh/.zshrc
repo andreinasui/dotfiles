@@ -37,6 +37,7 @@ source "$HOME/.aliases" 2>/dev/null
 # ZSH functions path
 fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_functions
 
+
 # ============ PyEnv configuration section ============
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -45,6 +46,11 @@ eval "$(pyenv virtualenv-init -)"
 # ============ NodEnv configuration section ============
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+# pnpm completion
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/zsh/completion/pnpm.zsh ]] && . ~/.config/zsh/completion/pnpm.zsh || true
 
 # Source fzf for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
