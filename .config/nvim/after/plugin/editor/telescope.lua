@@ -8,8 +8,8 @@ telescope.setup({
 	defaults = {
 		mappings = {
 			i = {
-				["<C-k>"] = tele_actions.move_selection_previous,
-				["<C-j>"] = tele_actions.move_selection_next,
+				["<C-p>"] = tele_actions.move_selection_previous,
+				["<C-n>"] = tele_actions.move_selection_next,
 				["<C-q>"] = tele_actions.send_selected_to_qflist + tele_actions.open_qflist,
 				["<C-x>"] = trouble.open_with_trouble,
 			},
@@ -18,6 +18,7 @@ telescope.setup({
 			},
 		},
 		set_env = { COLORTERM = "truecolor" },
+		file_ignore_patterns = { ".git/" },
 	},
 	pickers = {
 		diagnostics = {

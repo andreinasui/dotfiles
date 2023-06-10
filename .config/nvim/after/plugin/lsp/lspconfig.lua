@@ -38,7 +38,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 -- set debug log level to lsp
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("info")
 
 -- configure multiple servers
 local servers = { "clangd", "cmake", "bashls", "html", "cssls" }

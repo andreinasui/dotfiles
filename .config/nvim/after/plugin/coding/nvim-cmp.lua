@@ -3,15 +3,8 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- load friendly-snippets
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local ok_cmp, cmp = pcall(require, "cmp")
-if not ok_cmp then
-	return
-end
-
-local ok_luasnip, luasnip = pcall(require, "luasnip")
-if not ok_luasnip then
-	return
-end
+local luasnip = require("luasnip")
+local cmp = require("cmp")
 
 luasnip.filetype_extend("javascript", { "javascriptreact" })
 luasnip.config.set_config({
@@ -25,10 +18,7 @@ luasnip.config.set_config({
 	delete_check_events = "InsertLeave",
 })
 
-local ok_lspkind, lspkind = pcall(require, "lspkind")
-if not ok_lspkind then
-	return
-end
+local lspkind = require("lspkind")
 
 cmp.setup({
 	snippet = {
