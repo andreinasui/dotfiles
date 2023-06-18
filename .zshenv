@@ -31,3 +31,4 @@
 # +----------------+-----------+-----------+------+
 
 export ZDOTDIR="${HOME}/.config/zsh"
+export I3_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/i3"

@@ -29,11 +29,11 @@ mason_lspconfig.setup({
 		-- Misc programming languages
 		"lua_ls", -- lua lsp
 		"bashls", -- bash lsp
+		"pyright", -- python
 		-- Misc filetypes lsp
 		"jsonls",
 		"yamlls",
 		"texlab",
-		-- Formatters
 	},
 	automatic_installation = true,
 })
@@ -48,6 +48,7 @@ mason_null_ls.setup({
 		"eslint_d", -- ts/js linter
 		"clang_format", -- c/c++ formatter
 		"cmakelang", -- cmake formatter/linter
+		"black", -- python formatter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

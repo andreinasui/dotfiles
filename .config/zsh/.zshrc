@@ -1,5 +1,5 @@
 # export plugins dir variable
-export ZPLUGSDIR=${ZPLUGSDIR:-${XDG_DATA_HOME}/zsh}
+export ZPLUGSDIR="$HOME/.local/share/zsh"
 # Add local user bin to PATH
 export PATH="$PATH:$HOME/.local/bin"
 export HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
@@ -52,9 +52,12 @@ eval "$(nodenv init -)"
 # uninstall by removing these lines
 [[ -f ~/.config/zsh/completion/pnpm.zsh ]] && . ~/.config/zsh/completion/pnpm.zsh || true
 
+[[ -f ~/.config/zsh/completion/i3lock.zsh ]] && . ~/.config/zsh/completion/i3lock.zsh || true
+
 # Source fzf for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # This needs to be at the end of the file
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+export PATH=$PATH:/home/andrei/.spicetify

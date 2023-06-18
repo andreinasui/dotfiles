@@ -5,7 +5,7 @@ require("bufferline").setup({
 		diagnostics = "nvim_lsp",
 		always_show_bufferline = false,
 		show_tab_indicators = false,
-		buffer_close_icon = "",
+		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
 		left_trunc_marker = "",

@@ -8,12 +8,15 @@ alias mv='mv -i'
 # alias rm='rm -i'
 
 # configuration files aliases
-alias zshconfing='$EDITOR $ZDOTDIR/.zshrc'
-alias aliasconfing='$EDITOR $ZDOTDIR/aliases.zsh'
-alias p10kconfing='$EDITOR $ZDOTDIR/.p10k.zsh'
-alias nvimconfing='$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim'
-alias alacrittyconfing="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml"
-alias tmuxconfing="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+alias i3config="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/i3"
+alias polybarconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/polybar"
+alias picomconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/picom"
+alias zshconfig="$EDITOR $ZDOTDIR"
+alias aliasconfig="$EDITOR $ZDOTDIR/aliases.zsh"
+alias p10kconfig="$EDITOR $ZDOTDIR/.p10k.zsh"
+alias nvimconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+alias alacrittyconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml"
+alias tmuxconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 # TODO: create alias using fd fzf-tmux and nvim to open a file fast
 
 # easier to read disk

@@ -16,17 +16,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
-		-- code actions
-		-- code_actions.gitsigns,
-		code_actions.shellcheck,
-		-- code_actions.eslint_d.with({ -- js/ts linter
-		-- 	-- only enable eslint if root has .eslintrc.js
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
-		-- 			or utils.root_has_file(".eslintrc.js")
-		-- 			or utils.root_has_file(".eslintrc.yaml")
-		-- 	end,
-		-- }),
 		--  formatters
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
@@ -43,16 +32,28 @@ null_ls.setup({
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 		}),
 		formatting.cmake_format, -- cmake formatter/linter
+		formatting.black, -- python formatter
+		-- code actions
+		-- code_actions.gitsigns,
+		code_actions.shellcheck,
+		code_actions.eslint_d.with({ -- js/ts linter
+			-- only enable eslint if root has .eslintrc.js
+			condition = function(utils)
+				return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
+					or utils.root_has_file(".eslintrc.js")
+					or utils.root_has_file(".eslintrc.yaml")
+			end,
+		}),
 		-- linters
 		diagnostics.cmake_lint, -- cmake linter
-		-- diagnostics.eslint_d.with({ -- js/ts linter
-		-- 	-- only enable eslint if root has .eslintrc.js
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
-		-- 			or utils.root_has_file(".eslintrc.js")
-		-- 			or utils.root_has_file(".eslintrc.yaml")
-		-- 	end,
-		-- }),
+		diagnostics.eslint_d.with({ -- js/ts linter
+			-- only enable eslint if root has .eslintrc.js
+			condition = function(utils)
+				return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
+					or utils.root_has_file(".eslintrc.js")
+					or utils.root_has_file(".eslintrc.yaml")
+			end,
+		}),
 		-- require("typescript.extensions.null-ls.code-actions"),
 	},
 	-- on_init = function(new_client, _)

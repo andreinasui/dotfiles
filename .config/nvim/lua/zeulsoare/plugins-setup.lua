@@ -34,6 +34,22 @@ require("lazy").setup({
 	"sainnhe/gruvbox-material",
 	"sainnhe/everforest",
 
+	-- Input UI dressing
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	opts = {},
+	-- },
+	-- Unicode helper
+	{ "chrisbra/unicode.vim" },
+	{
+		"ziontee113/icon-picker.nvim",
+		config = function()
+			require("icon-picker").setup({
+				disable_legacy_commands = true,
+			})
+		end,
+	},
+
 	-- tmux & split window navigation
 	"christoomey/vim-tmux-navigator",
 
