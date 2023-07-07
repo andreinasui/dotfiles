@@ -16,9 +16,7 @@ source "$ZDOTDIR/plugins.zsh"
 FZF_CTRL_T_COMMAND='fd --type f --hidden --exclude .git --exclude .cache'
 FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 
-# NVM variables
-export NVM_AUTO_USE=true
-export NVM_COMPLETION=true
+export QT_QPA_PLATFORMTHEME="qt5ct" 
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -47,12 +45,19 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
-# pnpm completion
-# tabtab source for packages
+# ============ Cargo configuration section =============
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Shell completions
 # uninstall by removing these lines
+# pnpm completion
 [[ -f ~/.config/zsh/completion/pnpm.zsh ]] && . ~/.config/zsh/completion/pnpm.zsh || true
 
+# i3lock completion
 [[ -f ~/.config/zsh/completion/i3lock.zsh ]] && . ~/.config/zsh/completion/i3lock.zsh || true
+
+# rbw completion
+[[ -f ~/.config/zsh/completion/rbw.zsh ]] && . ~/.config/zsh/completion/rbw.zsh || true
 
 # Source fzf for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -46,14 +46,14 @@ null_ls.setup({
 		}),
 		-- linters
 		diagnostics.cmake_lint, -- cmake linter
-		diagnostics.eslint_d.with({ -- js/ts linter
-			-- only enable eslint if root has .eslintrc.js
-			condition = function(utils)
-				return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
-					or utils.root_has_file(".eslintrc.js")
-					or utils.root_has_file(".eslintrc.yaml")
-			end,
-		}),
+		-- diagnostics.eslint_d.with({ -- js/ts linter
+		-- 	-- only enable eslint if root has .eslintrc.js
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file(".eslintrc.json") -- change file extension if you use something else
+		-- 			or utils.root_has_file(".eslintrc.js")
+		-- 			or utils.root_has_file(".eslintrc.yaml")
+		-- 	end,
+		-- }),
 		-- require("typescript.extensions.null-ls.code-actions"),
 	},
 	-- on_init = function(new_client, _)

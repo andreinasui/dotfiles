@@ -30,15 +30,13 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
+	-- QOL
+	{ "kazhala/close-buffers.nvim" },
+
 	-- Color schemes
 	"sainnhe/gruvbox-material",
 	"sainnhe/everforest",
 
-	-- Input UI dressing
-	-- {
-	-- 	"stevearc/dressing.nvim",
-	-- 	opts = {},
-	-- },
 	-- Unicode helper
 	{ "chrisbra/unicode.vim" },
 	{
@@ -167,4 +165,19 @@ require("lazy").setup({
 
 	-- nvim session
 	{ "rmagatti/auto-session" },
+
+	-- AI integration
+	-- Tabnine https://www.tabnine.com
+	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+
+	-- ChatGPT
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	},
 })
