@@ -150,4 +150,4 @@ configuration {
   }
 }
 
-@theme "/home/andrei/.local/share/rofi/themes/squared-everforest.rasi"
+@theme "/home/andrei/.config/rofi/themes/squared-everforest.rasi"
