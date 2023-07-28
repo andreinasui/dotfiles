@@ -49,15 +49,10 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Shell completions
-# uninstall by removing these lines
-# pnpm completion
-[[ -f ~/.config/zsh/completion/pnpm.zsh ]] && . ~/.config/zsh/completion/pnpm.zsh || true
-
-# i3lock completion
-[[ -f ~/.config/zsh/completion/i3lock.zsh ]] && . ~/.config/zsh/completion/i3lock.zsh || true
-
-# rbw completion
-[[ -f ~/.config/zsh/completion/rbw.zsh ]] && . ~/.config/zsh/completion/rbw.zsh || true
+# ZSH completion
+fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion
+autoload -U compinit
+compinit
 
 # Source fzf for zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -194,9 +194,10 @@ exec_always --no-startup-id feh --bg-fill "$HOME/Pictures/Wallpapers/wallpaper-f
 exec --no-startup-id input-leap
 # Start KDE connect daemon to connect to phone
 exec --no-startup-id /usr/libexec/kdeconnectd
-# Set monitor on 75 Hz
-exec --no-startup-id xrandr -r 75
-
+# Set monitor on 60 Hz
+exec --no-startup-id xrandr -r 60
+# Set keyboard layout
+exec --no-startup-id setxkbmap -layout ro
 # Start apps on specific workspace
 exec --no-startup-id alacritty
 exec --no-startup-id i3-msg "workspace $ws2; exec --no-startup-id firefox"

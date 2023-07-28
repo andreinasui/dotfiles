@@ -4,6 +4,7 @@ require("lspsaga").setup({
 		max_height = 0.5,
 		min_width = 30,
 		force_max_height = false,
+		default = "def+imp+ref",
 		keys = {
 			jump_to = "p",
 			expand_or_jump = "o",
