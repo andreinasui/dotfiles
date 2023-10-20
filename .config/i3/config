@@ -61,6 +61,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "$HOME/.config/rofi/powermenu.sh"
 # run app in rofi
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
+# take screenshot
+# bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+# bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+# bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 # change focus
 bindsym $mod+h focus left
@@ -184,8 +188,8 @@ gaps inner 10px
 # Assign ws to default apps
 assign [class="Alacritty"] $ws1
 assign [class="steam"] $ws10
-assign [class="discord"] $ws9
-assign [class="Spotify"] $ws8
+assign [class="discord"] $ws8
+assign [class="Spotify"] $ws9
 
 
 # Autostart apps
@@ -195,9 +199,9 @@ exec --no-startup-id input-leap
 # Start KDE connect daemon to connect to phone
 exec --no-startup-id /usr/libexec/kdeconnectd
 # Set monitor on 60 Hz
-exec --no-startup-id xrandr -r 60
+exec_always --no-startup-id xrandr -r 75
 # Set keyboard layout
-exec --no-startup-id setxkbmap -layout ro
+exec_always --no-startup-id setxkbmap -layout ro
 # Start apps on specific workspace
 exec --no-startup-id alacritty
 exec --no-startup-id i3-msg "workspace $ws2; exec --no-startup-id firefox"

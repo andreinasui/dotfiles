@@ -49,8 +49,10 @@ eval "$(nodenv init -)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Shell completions
-# ZSH completion
-fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completion
+# PNPM is a special case
+[[ -f "$ZDOTDIR/completions/_pnpm.zsh" ]] && source "$ZDOTDIR/completions/_pnpm.zsh" || true
+
+fpath+=$ZDOTDIR/completions
 autoload -U compinit
 compinit
 
