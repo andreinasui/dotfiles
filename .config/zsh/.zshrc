@@ -53,6 +53,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 [[ -f "$ZDOTDIR/completions/_pnpm.zsh" ]] && source "$ZDOTDIR/completions/_pnpm.zsh" || true
 
 fpath+=$ZDOTDIR/completions
+fpath+=$ZDOTDIR/completions/distrobox
 autoload -U compinit
 compinit
 

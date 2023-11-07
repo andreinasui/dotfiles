@@ -171,13 +171,13 @@ require("lazy").setup({
 	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 
 	-- ChatGPT
-	{
-		"jackMort/ChatGPT.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	},
+	-- {
+	-- 	"jackMort/ChatGPT.nvim",
+	-- 	event = "VeryLazy",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- },
 })
