@@ -49,8 +49,8 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<Up>"] = cmp.mapping.select_prev_item(),
 		["<Down>"] = cmp.mapping.select_next_item(),
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -62,14 +62,14 @@ cmp.setup({
 			behaviour = cmp.ConfirmBehavior.Insert,
 			select = true,
 		}),
-		["<C-n>"] = cmp.mapping(function(fallback)
+		["<M-n>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(1) then
 				luasnip.jump(1)
 			else
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-p>"] = cmp.mapping(function(fallback)
+		["<M-p>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else

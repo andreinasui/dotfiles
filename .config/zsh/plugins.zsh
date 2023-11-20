@@ -39,7 +39,7 @@ if ! zgenom saved; then
     zgenom save
 
     # Compile your zsh files
-    zgenom compile "$ZDOTDIR/.zshrc"
+    # zgenom compile "$ZDOTDIR/.zshrc"
     zgenom compile $ZDOTDIR
 
     # You can perform other "time consuming" maintenance tasks here as well.
