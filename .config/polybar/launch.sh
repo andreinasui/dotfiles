@@ -7,5 +7,12 @@ polybar-msg cmd quit
 # killall -q polybar
 
 # Launch bar1 and bar2
-polybar bar 2>&1 | tee -a /tmp/polybar.log &
+primary_monitor=$(xrandr --query | grep primary | cut -d" " -f1)
+if type "xrandr"; then
+	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+		MONITOR=$m polybar mainbar 2>&1 | tee -a /tmp/polybar_"$m".log &
+	done
+else
+	polybar --reload example &
+fi
 disown
