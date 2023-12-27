@@ -17,6 +17,7 @@ alias p10kconfig="$EDITOR $ZDOTDIR/.p10k.zsh"
 alias nvimconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 alias alacrittyconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/alacritty.yml"
 alias tmuxconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
+alias hyprconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/hypr/hyprland.conf"
 # TODO: create alias using fd fzf-tmux and nvim to open a file fast
 
 # easier to read disk

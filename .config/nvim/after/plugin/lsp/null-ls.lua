@@ -1,8 +1,5 @@
 -- import null-ls plugin safely
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
-	return
-end
+local null_ls = require("null-ls")
 
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters

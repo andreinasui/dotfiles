@@ -201,7 +201,7 @@ exec --no-startup-id input-leap
 # Start KDE connect daemon to connect to phone
 exec --no-startup-id /usr/libexec/kdeconnectd
 # Set monitor on 60 Hz
-exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144 --primary --output DisplayPort-1 --mode 2560x1440 --rate 75 --right-of DisplayPort-0
+exec_always --no-startup-id xrandr --output DisplayPort-0 --mode 2560x1440 --rate 165 --primary --output DisplayPort-1 --mode 2560x1440 --rate 75 --right-of DisplayPort-0
 # Set keyboard layout
 exec_always --no-startup-id setxkbmap -layout ro
 # Start apps on specific workspace

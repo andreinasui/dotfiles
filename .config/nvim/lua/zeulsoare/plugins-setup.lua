@@ -118,7 +118,7 @@ require("lazy").setup({
 	"onsails/lspkind.nvim",
 
 	-- formatting & linting
-	"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+	"nvimtools/none-ls.nvim", -- configure formatters & linters
 	"jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
 
 	-- treesitter configuration
@@ -131,6 +131,7 @@ require("lazy").setup({
 		dependencies = {
 			"windwp/nvim-ts-autotag", -- autoclose tags
 			"nvim-treesitter/nvim-treesitter-refactor",
+			"luckasRanarison/tree-sitter-hypr",
 		},
 	},
 
