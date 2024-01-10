@@ -131,10 +131,13 @@ require("lazy").setup({
 		dependencies = {
 			"windwp/nvim-ts-autotag", -- autoclose tags
 			"nvim-treesitter/nvim-treesitter-refactor",
-			"luckasRanarison/tree-sitter-hypr",
 		},
 	},
-
+	-- hyprlang treesitter
+	{
+		"luckasRanarison/tree-sitter-hyprlang",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 	-- auto closing
 	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 
