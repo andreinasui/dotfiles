@@ -30,6 +30,7 @@ null_ls.setup({
 		}),
 		formatting.cmake_format, -- cmake formatter/linter
 		formatting.black, -- python formatter
+		formatting.xmlformat, -- xml formatter
 		-- code actions
 		-- code_actions.gitsigns,
 		code_actions.shellcheck,
@@ -52,6 +53,7 @@ null_ls.setup({
 		-- 	end,
 		-- }),
 		-- require("typescript.extensions.null-ls.code-actions"),
+		diagnostics.cpplint,
 	},
 	-- on_init = function(new_client, _)
 	-- 	new_client.offset_encoding = "utf-32"

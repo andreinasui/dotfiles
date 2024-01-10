@@ -43,17 +43,61 @@ vim.lsp.set_log_level("info")
 -- configure multiple servers
 local servers = { "clangd", "cmake", "bashls", "html", "cssls", "pyright" }
 for _, server in pairs(servers) do
-	lspconfig[server].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
+	if server == "clangd" then
+		lspconfig[server].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = {
+				"clangd",
+				"--background-index",
+				"-j=4",
+			},
+		})
+	else
+		lspconfig[server].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+	end
 end
+
+--configure sonarlint
+-- require("sonarlint").setup({
+-- 	server = {
+-- 		cmd = {
+-- 			"sonarlint-language-server",
+-- 			-- Ensure that sonarlint-language-server uses stdio channel
+-- 			"-stdio",
+-- 			"-analyzers",
+-- 			-- paths to the analyzers you need, using those for python and java in this example
+-- 			vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
+-- 		},
+-- 	},
+-- 	filetypes = {
+-- 		-- Tested and working
+-- 		"cpp",
+-- 	},
+-- })
 
 -- configure typescript server with plugin
 typescript.setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
+	},
+})
+
+-- configure esbonio rst lsp
+lspconfig.esbonio.setup({
+	settings = {
+		preview = {
+			bind = "localhost",
+			htttpPort = 7000,
+		},
+		sphinx = {
+			pythonCommand = { "/home/andrei/.pyenv/versions/px13-py3-env" },
+			buildCommand = { "sphinx-build", "-M", "html", "doc", "doc/build" },
+		},
 	},
 })
 

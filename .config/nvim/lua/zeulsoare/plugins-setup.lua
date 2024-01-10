@@ -174,6 +174,8 @@ require("lazy").setup({
 	-- Tabnine https://www.tabnine.com
 	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 
+	-- Sonarlint
+	{ url = "https://gitlab.com/schrieveslaach/sonarlint.nvim" },
 	-- ChatGPT
 	-- {
 	-- 	"jackMort/ChatGPT.nvim",
