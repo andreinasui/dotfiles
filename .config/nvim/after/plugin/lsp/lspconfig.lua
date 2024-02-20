@@ -41,7 +41,7 @@ capabilities.textDocument.foldingRange = {
 vim.lsp.set_log_level("info")
 
 -- configure multiple servers
-local servers = { "clangd", "cmake", "bashls", "html", "cssls", "pyright" }
+local servers = { "rust_analyzer", "clangd", "cmake", "bashls", "html", "cssls", "pyright" }
 for _, server in pairs(servers) do
 	lspconfig[server].setup({
 		capabilities = capabilities,
