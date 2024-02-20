@@ -31,6 +31,7 @@ null_ls.setup({
 		formatting.cmake_format, -- cmake formatter/linter
 		formatting.black, -- python formatter
 		formatting.xmlformat, -- xml formatter
+		formatting.rustfmt, -- rust formatter
 		-- code actions
 		-- code_actions.gitsigns,
 		code_actions.shellcheck,

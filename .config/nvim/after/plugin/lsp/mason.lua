@@ -21,6 +21,8 @@ mason_lspconfig.setup({
 		-- C/C++
 		"clangd",
 		"cmake",
+		-- rust
+		"rust_analyzer",
 		-- Web dev
 		"tsserver",
 		"html",
