@@ -2,8 +2,9 @@
 export ZPLUGSDIR="$HOME/.local/share/zsh"
 # Add local user bin to PATH
 export PATH="$PATH:$HOME/.local/bin"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # History settings
-[[ ! -d "$XDG_CACHE_HOME/zsh" ]] && mkdir -p "$XDG_CACHE_HOME/zsh" || true
+[[ ! -d "$ZSH_CACHE_DIR" ]] && mkdir -p "$ZSH_CACHE_DIR" || true
 export HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10200
