@@ -174,6 +174,57 @@ require("lazy").setup({
 	-- Tabnine https://www.tabnine.com
 	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 
+	-- DAP integration
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("dap.ext.vscode").load_launchjs()
+		end,
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+		config = function()
+			local dap = require("dap")
+			local dapui = require("dapui")
+			dapui.setup()
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+			dap.listeners.before.event_terminated["dapui_config"] = function()
+				dapui.close()
+			end
+			dap.listeners.before.event_exited["dapui_config"] = function()
+				dapui.close()
+			end
+		end,
+	},
+
+	{
+		"mfussenegger/nvim-dap-python",
+		ft = "python",
+		dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
+		config = function(_, opts)
+			require("dap-python").setup(os.getenv("VIRTUAL_ENV") .. "/bin/python")
+		end,
+	},
+
+	-- pyenv selector
+	-- {
+	-- 	"linux-cultist/venv-selector.nvim",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+	-- 	},
+	-- 	lazy = false,
+	-- 	branch = "regexp", -- This is the regexp branch, use this for the new version
+	-- 	config = function()
+	-- 		require("venv-selector").setup()
+	-- 	end,
+	-- 	keys = {
+	-- 		{ ",v", "<cmd>VenvSelect<cr>" },
+	-- 	},
+	-- },
 	-- ChatGPT
 	-- {
 	-- 	"jackMort/ChatGPT.nvim",

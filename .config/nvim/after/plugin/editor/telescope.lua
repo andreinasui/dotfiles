@@ -2,7 +2,7 @@ local telescope = require("telescope")
 
 local tele_actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 
 telescope.setup({
 	defaults = {
@@ -11,7 +11,7 @@ telescope.setup({
 				["<C-p>"] = tele_actions.move_selection_previous,
 				["<C-n>"] = tele_actions.move_selection_next,
 				["<C-q>"] = tele_actions.send_selected_to_qflist + tele_actions.open_qflist,
-				["<C-x>"] = trouble.open_with_trouble,
+				["<C-x>"] = trouble.open,
 			},
 			n = {
 				["<C-x>"] = trouble.open_with_trouble,

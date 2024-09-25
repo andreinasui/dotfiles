@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables
@@ -38,7 +38,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 -- set debug log level to lsp
-vim.lsp.set_log_level("info")
+vim.lsp.set_log_level("error")
 
 -- configure multiple servers
 local servers = { "rust_analyzer", "clangd", "cmake", "bashls", "html", "cssls", "pyright" }
@@ -48,6 +48,16 @@ for _, server in pairs(servers) do
 		on_attach = on_attach,
 	})
 end
+
+--configure clangd server
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
+})
 
 -- configure typescript server with plugin
 typescript.setup({

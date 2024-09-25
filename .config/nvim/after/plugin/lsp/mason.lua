@@ -24,7 +24,7 @@ mason_lspconfig.setup({
 		-- rust
 		"rust_analyzer",
 		-- Web dev
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"tailwindcss",

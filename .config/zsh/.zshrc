@@ -64,9 +64,19 @@ eval "$(nodenv init -)"
 # ============ Cargo configuration section =============
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# ============ GO configuration section =============
+export GOPATH="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"
+
 # Shell completions
 # PNPM is a special case
 [[ -f "$ZDOTDIR/completions/_pnpm.zsh" ]] && source "$ZDOTDIR/completions/_pnpm.zsh" || true
+export PNPM_HOME="/home/andrei/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 fpath+=$ZDOTDIR/completions
 fpath+=$ZDOTDIR/completions/distrobox
@@ -80,3 +90,4 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 export PATH=$PATH:/home/andrei/.spicetify
+
