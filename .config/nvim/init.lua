@@ -1,2 +1,2 @@
-require("zeulsoare")
-
+require("zeulsoare.config")
+require("zeulsoare.lazy")
