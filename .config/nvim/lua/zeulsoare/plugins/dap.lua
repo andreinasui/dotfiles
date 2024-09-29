@@ -3,31 +3,28 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      { "theHamsta/nvim-dap-virtual-text", config = true },
+      { "theHamsta/nvim-dap-virtual-text" },
     },
     config = function()
-      local config = require("lazyvim.config")
-
+      require("nvim-dap-virtual-text").setup({})
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-      for name, sign in pairs(config.icons.dap) do
-        sign = type(sign) == "table" and sign or { sign }
-        vim.fn.sign_define(
-          "Dap" .. name,
-          { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
-        )
-      end
-
-      local vscode = require("dap.ext.vscode")
-      local json = require("plenary.json")
-      vscode.json_decode = function(str)
-        return vim.json.decode(json.json_strip_comments(str))
-      end
-
-      -- Extends dap.configurations with entries read from .vscode/launch.json
-      if vim.fn.filereadable(".vscode/launch.json") then
-        vscode.load_launchjs()
-      end
+      -- for name, sign in pairs(Config.icons.dap) do
+      --   sign = type(sign) == "table" and sign or { sign }
+      --   vim.fn.sign_define(
+      --     "Dap" .. name,
+      --     { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+      --   )
+      -- end
+      local dap = require("dap")
+      dap.configurations["python"] = {
+        -- Divider for the launch.json derived configs
+        {
+          name = "----- ↓ launch.json configs ↓ -----",
+          type = "",
+          request = "launch",
+        },
+      }
     end,
 
     -- stylua: ignore
@@ -72,7 +69,7 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-      { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+      { "<leader>de", function() require("dapui").eval(nil, {enter = true}) end, desc = "Eval", mode = {"n", "v"} },
     },
     opts = {},
     config = function(_, opts)
@@ -92,6 +89,11 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },
+    config = function()
+      require("dap-python").setup(os.getenv("VIRTUAL_ENV") .. "/bin/python")
+    end,
   },
   -- mason.nvim integration
   {
