@@ -1,0 +1,121 @@
+@import "gruvbox_material_hard_dark.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "RobotoMonoNerdFont";
+  font-size: 13px;
+  min-height: 20px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.75rem;
+  transition: none;
+  background: @bg0;
+}
+
+#workspaces button {
+  transition: none;
+  background: transparent;
+  padding: 5px;
+  color: @bg5;
+}
+
+#workspaces button:hover {
+  transition: none;
+  background: @bg5;
+  color: @fg0;
+  border-radius: 0.75rem;
+}
+
+#workspaces button.active {
+  color: @fg0;
+}
+
+#workspace button.urgent {
+  animation: blink 1s linear infinite alternate;
+  color: @red;
+}
+
+#clock {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-radius: 0.75rem 0 0 0.75rem;
+  color: @fg0;
+  background: @bg0;
+}
+
+#custom-weather {
+  padding-right: 1.25rem;
+  color: @fg0;
+  background: @bg0;
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+#custom-spotify {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  margin-left: 1.25rem;
+  border-radius: 0.75rem;
+  color: @fg0;
+  background: @bg0;
+}
+
+#pulseaudio {
+  margin-right: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.5rem;
+  border-radius: 0.75rem;
+  transition: font-size 0.2s ease;
+  color: @fg0;
+  background: @bg0;
+}
+
+#pulseaudio.muted {
+  background: @bg0;
+  color: @green;
+  font-size: 1.25rem;
+}
+
+#cpu {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-right: 0.5rem;
+  color: @fg0;
+  background: @bg0;
+  border-radius: 0.75rem;
+}
+
+#temperature {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-right: 0.5rem;
+  color: @fg0;
+  background: @bg0;
+  border-radius: 0.75rem;
+}
+
+#tray {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-radius: 0.75rem;
+  color: @fg0;
+  background: @bg0;
+}
+
+@keyframes blink {
+  to {
+    color: @fg0;
+    font-size: 1.25rem;
+  }
+}

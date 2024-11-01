@@ -1,0 +1,68 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar at the bottom of your screen
+  "margin-top": 8,
+  "margin-left": 10,
+  "margin-right": 10,
+
+  // Choose the order of the modules
+  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+  "modules-center": ["clock", "custom/weather", "custom/spotify"],
+  "modules-right": ["pulseaudio", "tray"],
+
+  //***************************
+  //*  Modules configuration  *
+  //***************************
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+  },
+
+  "clock": {
+    "format": "{:%a, %d %b, %H:%M}",
+    "tooltip": false,
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 60,
+    "exec": "$HOME/.config/waybar/scripts/weather.py",
+    "return-type": "json",
+  },
+
+  "cpu": {
+    "format": "{usage}% ",
+  },
+
+  "pulseaudio": {
+    //"scroll-step": 1,
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "phone": "",
+      "default": ["", ""],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/spotify": {
+    "format": " {}",
+    "max-length": 30,
+    "interval": 1,
+    "escape": true,
+    "on-click-middle": "playerctl -p spotify play-pause",
+    "on-click": "playerctl -p spotify next",
+    "on-click-right": "playerctl -p spotify previous",
+    "exec": "$HOME/.config/waybar/scripts/spotify_player.sh 2> /dev/null", // Script in resources/custom_modules folder
+    "exec-if": "pgrep spotify",
+  },
+}

@@ -5,12 +5,19 @@
 ```bash
 git clone https://github.com/andreinasui/dotfiles $HOME/.dotfiles
 cd $HOME/.dotfiles
-stow .
+stow terminal i3/hyprland
 ```
 
 ## To delete all dotfiles run
 
 ```bash
 cd $HOME/.dotfiles
-stow -D .
+stow -D terminal i3/hyprland
+```
+
+## To reload all dotfiles run
+
+```bash
+cd $HOME/.dotfiles
+stow -R terminal i3/hyprland
 ```
