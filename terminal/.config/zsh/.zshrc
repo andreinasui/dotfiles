@@ -5,7 +5,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # History settings
 [[ ! -d "$ZSH_CACHE_DIR" ]] && mkdir -p "$ZSH_CACHE_DIR" || true
-export HISTFILE="$ZSH_CACHE_DIR/zsh/.zsh_history"
+export HISTFILE="$ZSH_CACHE_DIR/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10200
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
