@@ -1,3 +1,4 @@
+-- Hyprlang LSP
 return {
   {
     "neovim/nvim-lspconfig",
@@ -49,6 +50,7 @@ return {
           -- end
         end,
       })
+
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -75,6 +77,12 @@ return {
           lspconfig["emmet_ls"].setup({
             capabilities = capabilities,
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          })
+        end,
+        ["hyprls"] = function()
+          lspconfig["hyprls"].setup({
+            capabilities = capabilities,
+            filetypes = { "hyprland" },
           })
         end,
         ["lua_ls"] = function()

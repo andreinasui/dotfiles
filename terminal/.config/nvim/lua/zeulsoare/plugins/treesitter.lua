@@ -60,6 +60,11 @@ return {
       "luckasRanarison/tree-sitter-hyprlang",
       event = { "BufReadPre", "BufNewFile" },
       dependencies = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+        vim.filetype.add({
+          pattern = { ["hypr.*.conf"] = "hyprlang", [".*.hl"] = "hyprlang" },
+        })
+      end,
     },
   },
   {
