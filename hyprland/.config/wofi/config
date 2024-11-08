@@ -3,5 +3,5 @@ key_down=Ctrl-n,Ctrl-j
 key_up=Ctrl-p,Ctrl-k
 key_pgup=Ctrl-u
 key_pgdn=Ctrl-d
-key_exit=Escape,Ctrl-q
+key_exit=Escape,Ctrl-q,Alt-q
 key_expand=Ctrl-Return

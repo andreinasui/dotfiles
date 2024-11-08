@@ -6,7 +6,7 @@
 
 # Set programs that you use
 $terminal = alacritty
-$menu = wofi --show drun -p "Search"
+$menu = wofi --show drun -i -p "Search"
 $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
 $browser = firefox
 # PWAs
@@ -29,6 +29,7 @@ bind = $mainMod, E, exec, $powermenu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 bind = $mainMod_SHIFT, R, execr, killall -9 waybar && hyprctl dispatch exec waybar
+bind = $mainMod, N, exec, swaync-client --toggle-panel
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
