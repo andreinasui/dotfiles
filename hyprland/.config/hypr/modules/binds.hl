@@ -28,6 +28,7 @@ bind = $mainMod, D, exec, $menu
 bind = $mainMod, E, exec, $powermenu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, F, fullscreen
 bind = $mainMod_SHIFT, R, execr, killall -9 waybar && hyprctl dispatch exec waybar
 bind = $mainMod, N, exec, swaync-client --toggle-panel
 
