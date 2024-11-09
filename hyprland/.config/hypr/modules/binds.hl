@@ -11,8 +11,8 @@ $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
 $browser = firefox
 # PWAs
 $browser_pwa = firefoxpwa
-$discord_pwa_id = 01JBKMZ9Z45C0KV2727XH38S7Z
-$teams_pwa_id = 01JBKNFMSG001B7R9E0MSWKQT1
+$discord_pwa_id = 01JC8MYZXNYHNN530HAWDQFWRE
+$teams_pwa_id = 01JC8N1W43M4DKS5WRA0PDCNA8
 
 ###################
 ### KEYBINDINGS ###

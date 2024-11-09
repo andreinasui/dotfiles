@@ -8,7 +8,7 @@ alias mv='mv -i'
 # alias rm='rm -i'
 
 # configuration files aliases
-alias i3config="$EDITOR $HOME/.dotfiles/i3/.config/"
+alias i3config="$EDITOR $DOTFILES_DIR/i3/.config/"
 
 alias zshconfig="$EDITOR $ZDOTDIR"
 alias aliasconfig="$EDITOR $ZDOTDIR/aliases.zsh"
@@ -16,7 +16,7 @@ alias p10kconfig="$EDITOR $ZDOTDIR/.p10k.zsh"
 alias nvimconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 alias alacrittyconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty"
 alias tmuxconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
-alias hyprconfig="$EDITOR $HOME/.dotfiles/hyprland/.config/"
+alias hyprconfig="$EDITOR $DOTFILES_DIR/hyprland/.config/"
 
 # easier to read disk
 alias df='df -h'     # human-readable sizes
