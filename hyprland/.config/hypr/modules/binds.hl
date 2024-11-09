@@ -8,7 +8,7 @@
 $terminal = alacritty
 $menu = wofi --show drun -i -p "Search"
 $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
-$browser = firefox
+$browser = brave-browser
 # PWAs
 $browser_pwa = firefoxpwa
 $discord_pwa_id = 01JC8MYZXNYHNN530HAWDQFWRE

@@ -110,11 +110,6 @@ _extras_setup() {
 	popd >/dev/null 2>&1
 }
 
-_work_setup() {
-	# Work setup
-	echo "Work setup not yet!"
-}
-
 _tools_setup() {
 	_pyenv_setup
 	_nodenv_setup
@@ -148,7 +143,6 @@ home_restore() {
 	_dotfiles_setup
 	_tools_setup
 	_extras_setup
-	_work_setup
 
 }
 
