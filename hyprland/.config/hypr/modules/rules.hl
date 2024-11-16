@@ -32,10 +32,13 @@ workspace = 9, monitor:DP-2
 workspace = 10, monitor:DP-2
 
 windowrulev2 = workspace 1, class:^(Alacritty)$
-windowrulev2 = workspace 3 silent, class:^(.*FFPWA.*)$ title:^(.*Microsoft Teams.*)$
+windowrulev2 = workspace 3 silent, title:(.*Microsoft Teams.*)
 windowrulev2 = workspace 8 silent, class:^(Spotify)$
-windowrulev2 = workspace 9 silent, class:^(.*FFPWA.*)$ title:^(.*Discord.*)$
+windowrulev2 = workspace 9 silent, title:^(.*Discord.*)$
 windowrulev2 = workspace 10 silent, class:^(steam)$
+
+# inhibit idle on steam apps
+windowrulev2 = idleinhibit fullscreen,class:^(steam_app.*)$
 
 # Ignore maximize requests from apps. You'll probably like this.
 windowrulev2 = suppressevent maximize, class:.*

@@ -21,7 +21,7 @@ general {
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
     allow_tearing = false
 
-    layout = master
+    layout = dwindle
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
@@ -95,7 +95,6 @@ misc {
     disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
     font_family = RobotoMonoNerdFont
     vrr = 1
-
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#input
@@ -107,7 +106,7 @@ input {
     kb_rules =
 
     follow_mouse = 1
-    mouse_refocus = true
+    mouse_refocus = false
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 

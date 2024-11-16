@@ -72,7 +72,7 @@ export PATH="$HOME/go/bin:$PATH"
 # Shell completions
 # PNPM is a special case
 [[ -f "$ZDOTDIR/completions/_pnpm.zsh" ]] && source "$ZDOTDIR/completions/_pnpm.zsh" || true
-export PNPM_HOME="/home/andrei/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -85,10 +85,10 @@ autoload -U compinit
 compinit
 
 # Source fzf for zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # This needs to be at the end of the file
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-export PATH=$PATH:/home/andrei/.spicetify
+# To customize prompt, run `p10k configure` or edit $HOME/.config/zsh/.p10k.zsh.
+[[ ! -f $HOME/.config/zsh/.p10k.zsh ]] || source $HOME/.config/zsh/.p10k.zsh
+export PATH=$PATH:$HOME/.spicetify
 

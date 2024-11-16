@@ -9,10 +9,9 @@ $terminal = alacritty
 $menu = wofi --show drun -i -p "Search"
 $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
 $browser = brave-browser
-# PWAs
-$browser_pwa = firefoxpwa
-$discord_pwa_id = 01JC8MYZXNYHNN530HAWDQFWRE
-$teams_pwa_id = 01JC8N1W43M4DKS5WRA0PDCNA8
+$discord = flatpak run dev.vencord.Vesktop
+$teams = flatpak run com.github.IsmaelMartinez.teams_for_linux 
+$spotify = flatpak run com.spotify.Client
 
 ###################
 ### KEYBINDINGS ###
@@ -23,14 +22,15 @@ $mainMod = SUPER # Sets "Windows" key as main modifier
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 bind = $mainMod, Q, killactive
-bind = $mainMod, V, togglefloating,
 bind = $mainMod, D, exec, $menu
 bind = $mainMod, E, exec, $powermenu
-bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, J, togglesplit, # dwindle
+# bind = $mainMod, P, pseudo, # dwindle
+# bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, V, togglefloating,
 bind = $mainMod, F, fullscreen
 bind = $mainMod_SHIFT, R, execr, killall -9 waybar && hyprctl dispatch exec waybar
 bind = $mainMod, N, exec, swaync-client --toggle-panel
+bind = , Print, exec, flameshot
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
@@ -67,8 +67,8 @@ bind = $mainMod SHIFT, 0, movetoworkspace, 10
 # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
 # Scroll through existing workspaces with mainMod + scroll
-bind = $mainMod, mouse_down, workspace, e+1
-bind = $mainMod, mouse_up, workspace, e-1
+# bind = $mainMod, mouse_down, workspace, e+1
+# bind = $mainMod, mouse_up, workspace, e-1
 
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
@@ -90,5 +90,3 @@ bindl = , XF86AudioNext, exec, playerctl --player="spotify" next
 bindl = , XF86AudioPause, exec, playerctl --player="spotify" play-pause
 bindl = , XF86AudioPlay, exec, playerctl --player="spotify" play-pause
 bindl = , XF86AudioPrev, exec, playerctl --player="spotify" previous
-
-

@@ -72,14 +72,16 @@ _spicetify_setup() {
 	pushd "$DOWNLOADS_DIR" >/dev/null 2>&1
 	curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sed 's/\/dev\/tty/\/dev\/null || exit 0/g' | sh >/dev/null 2>&1
 
-	git -C Gruvify pull --quiet origin HEAD >/dev/null 2>&1 || git clone --quiet --depth=1 https://github.com/Skaytacium/Gruvify.git
-	cp -r Gruvify "$SPICETIFY_CONFIG_DIR/Themes"
+	# Download theme
+	git -C Spicetify-Lucid pull --quiet origin HEAD >/dev/null 2>&1 || git clone --quiet --depth=1 https://github.com/sanoojes/Spicetify-Lucid.git
+	mkdir -p "$SPICETIFY_CONFIG_DIR/Themes/Lucid"
+	cp -r Spicetify-Lucid/src/* "$SPICETIFY_CONFIG_DIR/Themes/Lucid"
 
 	prefs_path="$HOME/.var/app/com.spotify.Client/config/spotify/prefs"
 	sed -i -E "s+^(prefs_path\s*=\s*).*$+\1${prefs_path}+" "$(spicetify -c)"
 
 	spicetify config spotify_path "/var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/"
-	spicetify config current_theme "Gruvify"
+	spicetify config current_theme Lucid color_scheme dark
 	spicetify config extensions fullAppDisplay.js
 	spicetify config custom_apps lyrics-plus
 	spicetify config inject_css 1 replace_colors 1 overwrite_assets 1 inject_theme_js 1

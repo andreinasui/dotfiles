@@ -68,6 +68,12 @@ return {
     },
   },
   {
+    -- kitty treesitter
+    "fladson/vim-kitty",
+    ft = "kitty",
+    version = "*", -- You can select a tagged version
+  },
+  {
     -- log file highlighting
     "fei6409/log-highlight.nvim",
     config = function()

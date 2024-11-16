@@ -13,9 +13,10 @@ alias i3config="$EDITOR $DOTFILES_DIR/i3/.config/"
 alias zshconfig="$EDITOR $ZDOTDIR"
 alias aliasconfig="$EDITOR $ZDOTDIR/aliases.zsh"
 alias p10kconfig="$EDITOR $ZDOTDIR/.p10k.zsh"
-alias nvimconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+alias nvimconfig="$EDITOR $DOTFILES_DIR/terminal/.config/nvim"
 alias alacrittyconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty"
-alias tmuxconfig="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
+alias kittyconfig="$EDITOR $DOTFILES_DIR/terminal/.config/kitty/"
+alias tmuxconfig="$EDITOR $DOTFILES_DIR/terminal/.config/tmux"
 alias hyprconfig="$EDITOR $DOTFILES_DIR/hyprland/.config/"
 
 # easier to read disk

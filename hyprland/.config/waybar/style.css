@@ -3,7 +3,7 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "RobotoMonoNerdFont";
+  font-family: RobotoMonoNerdFont;
   font-size: 13px;
   min-height: 20px;
 }
@@ -29,6 +29,11 @@ window#waybar.hidden {
   background: transparent;
   padding: 5px;
   color: @bg5;
+}
+
+#workspaces button.focused {
+  background: @red;
+  color: @fg0;
 }
 
 #workspaces button:hover {
