@@ -31,8 +31,8 @@ workspace = 8, monitor:DP-2
 workspace = 9, monitor:DP-2
 workspace = 10, monitor:DP-2
 
-windowrulev2 = workspace 1, class:^(Alacritty)$
-windowrulev2 = workspace 3 silent, title:(.*Microsoft Teams.*)
+windowrulev2 = workspace 1, class:^(kitty)$
+windowrulev2 = workspace 3 silent, class:^(.*teams_for_linux.*)$
 windowrulev2 = workspace 8 silent, class:^(Spotify)$
 windowrulev2 = workspace 9 silent, title:^(.*Discord.*)$
 windowrulev2 = workspace 10 silent, class:^(steam)$

@@ -5,10 +5,12 @@
 # See https://wiki.hyprland.org/Configuring/Keywords/
 
 # Set programs that you use
-$terminal = alacritty
+$terminal = kitty
 $menu = wofi --show drun -i -p "Search"
 $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
-$browser = brave-browser
+$hyprshot = $HOME/.config/hypr/scripts/hyprshot/hyprshot
+$hide_waybar = $HOME/.config/hypr/scripts/hide_waybar.sh
+$browser = zen-browser
 $discord = flatpak run dev.vencord.Vesktop
 $teams = flatpak run com.github.IsmaelMartinez.teams_for_linux 
 $spotify = flatpak run com.spotify.Client
@@ -26,11 +28,16 @@ bind = $mainMod, D, exec, $menu
 bind = $mainMod, E, exec, $powermenu
 # bind = $mainMod, P, pseudo, # dwindle
 # bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, Return, exec, $terminal
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, F, fullscreen
-bind = $mainMod_SHIFT, R, execr, killall -9 waybar && hyprctl dispatch exec waybar
+# Reload waybar
+bind = $mainMod_SHIFT, R, exec, killall -SIGUSR2 waybar
+# Hide waybar
+bind = $mainMod_SHIFT, H, exec, $hide_waybar
 bind = $mainMod, N, exec, swaync-client --toggle-panel
-bind = , Print, exec, flameshot
+bind = , Print, exec, IMG=$HOME/Screenshots/"$(date +'%Y-%m-%d-%H%M%S_screenshot.png')" && grim -g "$(slurp -w 0 -b 00000088)" $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot
+bind = SHIFT, Print, exec, IMG=$HOME/Screenshots/"$(date +'%Y-%m-%d-%H%M%S_screenshot.png')" && grim -g "$(slurp -w 0 -b 00000088)" - | swappy -f - -o $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l

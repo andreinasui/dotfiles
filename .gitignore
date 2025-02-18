@@ -4,3 +4,4 @@
 **/*.zwc
 **/.*.zwc
 lazy-lock.json
+**/waybar/config.jsonc
