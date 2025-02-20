@@ -40,7 +40,6 @@ window#waybar.hidden {
   transition: none;
   background: @bg5;
   color: @fg0;
-  border-radius: 0.75rem;
 }
 
 #workspaces button.active {
@@ -76,6 +75,15 @@ window#waybar.hidden {
   background: @bg0;
 }
 
+#custom-notification {
+  margin-right: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.5rem;
+  border-radius: 0.75rem;
+  color: @fg0;
+  background: @bg0;
+}
+
 #pulseaudio {
   margin-right: 0.5rem;
   padding-left: 1.25rem;
@@ -90,24 +98,6 @@ window#waybar.hidden {
   background: @bg0;
   color: @green;
   font-size: 1.25rem;
-}
-
-#cpu {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-right: 0.5rem;
-  color: @fg0;
-  background: @bg0;
-  border-radius: 0.75rem;
-}
-
-#temperature {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  margin-right: 0.5rem;
-  color: @fg0;
-  background: @bg0;
-  border-radius: 0.75rem;
 }
 
 #tray {
