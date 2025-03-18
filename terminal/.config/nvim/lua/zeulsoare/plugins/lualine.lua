@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons"},
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
   config = function()
     local lualine = require("lualine")
 
@@ -74,5 +74,5 @@ return {
       inactive_winbar = {},
       extensions = {},
     })
-  end
+  end,
 }

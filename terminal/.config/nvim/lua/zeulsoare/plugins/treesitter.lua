@@ -55,6 +55,10 @@ return {
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
+  {
     -- hyprlang treesitter
     {
       "luckasRanarison/tree-sitter-hyprlang",

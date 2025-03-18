@@ -116,7 +116,7 @@ return {
     "nvimdev/lspsaga.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons", -- optional
+      { "echasnovski/mini.icons", opts = {} }, -- optional
     },
     config = function()
       require("lspsaga").setup({
