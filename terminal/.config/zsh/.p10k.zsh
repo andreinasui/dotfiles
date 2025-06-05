@@ -104,6 +104,7 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    docker_context          # custom docker context prompt show
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
@@ -1594,6 +1595,17 @@
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  function prompt_docker_context(){
+    local d_context=$(docker context show)
+    local color=3
+    if [[ $d_context == "default" ]]; then
+      return
+    fi
+    p10k segment -f ${color} -t ${d_context}
+
+  }
+
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
   # when accepting a command line. Supported values:

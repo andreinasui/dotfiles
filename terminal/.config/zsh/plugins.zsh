@@ -24,7 +24,6 @@ if ! zgenom saved; then
     zgenom ohmyzsh
 
     # Ohmyzsh plugins
-    zgenom ohmyzsh plugins/git
     zgenom ohmyzsh plugins/sudo
     zgenom ohmyzsh plugins/docker --completion
     zgenom ohmyzsh plugins/z 
@@ -32,7 +31,6 @@ if ! zgenom saved; then
     # other plugins
     zgenom load zsh-users/zsh-syntax-highlighting
     zgenom load zsh-users/zsh-completions
-    # zgenom load lukechilds/zsh-nvm
     zgenom load lukechilds/zsh-better-npm-completion
 
     # save all to init script

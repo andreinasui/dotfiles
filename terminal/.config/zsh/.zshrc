@@ -20,7 +20,11 @@ setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-bindkey -r "^L"
+
+#bindkey -r "^[H"
+#bindkey -r "^[J"
+#bindkey -r "^[K"
+#bindkey -r "^[L"
 
 # Source plugins
 source "$ZDOTDIR/plugins.zsh"
@@ -33,8 +37,6 @@ source "$ZDOTDIR/plugins.zsh"
 # fzf settings. Uses sharkdp/fd for a faster alternative to `find`.
 FZF_CTRL_T_COMMAND='fd --type f --hidden --exclude .git --exclude .cache'
 FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
-
-export QT_QPA_PLATFORMTHEME="qt5ct" 
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

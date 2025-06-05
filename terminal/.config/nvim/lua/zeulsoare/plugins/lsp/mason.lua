@@ -116,11 +116,12 @@ return {
               buffer = bufnr,
               callback = function()
                 vim.lsp.buf.format({
+                  async = false,
                   bufnr = bufnr,
                   timeout_ms = 5000,
-                  filter = function(client)
-                    return client.name == "null-ls"
-                  end,
+                  -- filter = function(client)
+                  --   return client.name == "null-ls"
+                  -- end,
                 })
               end,
             })
@@ -152,6 +153,13 @@ return {
         -- auto-install configured formatters & linters (with null-ls)
         automatic_installation = true,
       })
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
     end,
   },
 }

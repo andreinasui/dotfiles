@@ -55,7 +55,7 @@ return {
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
       -- set debug log level to lsp
-      vim.lsp.set_log_level("info")
+      vim.lsp.set_log_level("warn")
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       -- (not in youtube nvim video)
