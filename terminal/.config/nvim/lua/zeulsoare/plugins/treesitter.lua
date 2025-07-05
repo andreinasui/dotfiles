@@ -14,7 +14,7 @@ return {
         -- ensure these language parsers are installed
         ensure_installed = "all",
         sync_install = false,
-        ignore_install = {},
+        ignore_install = { "ipkg" },
         refactor = {
           highlight_definitions = {
             enable = true,
@@ -23,13 +23,13 @@ return {
           },
           highlight_current_scope = { enable = false },
           smart_rename = {
-            enable = false,
+            enable = true,
             keymaps = {
               smart_rename = "grr",
             },
           },
           navigation = {
-            enable = true,
+            enable = false,
             keymaps = {
               goto_definition_lsp_fallback = "gnd",
               list_definitions = "gnD",
@@ -44,6 +44,7 @@ return {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
+        textobjects = { enable = true },
         -- enable indentation
         indent = { enable = true },
         -- enable autotagging (w/ nvim-ts-autotag plugin)

@@ -11,9 +11,9 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig")
-      local mason_lspconfig = require("mason-lspconfig")
       -- local typescript = require("typescript")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
+      local vim_lsp = vim.lsp
 
       local keymap = vim.keymap
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -50,12 +50,25 @@ return {
           -- end
         end,
       })
-
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client == nil then
+            return
+          end
+          if client.name == "ruff" then
+            -- Disable hover in favor of Pyright
+            client.server_capabilities.hoverProvider = false
+          end
+        end,
+        desc = "LSP: Disable hover capability from Ruff",
+      })
       -- used to enable autocompletion (assign to every lsp server config)
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
       -- set debug log level to lsp
-      vim.lsp.set_log_level("warn")
+      vim_lsp.set_log_level("warn")
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       -- (not in youtube nvim video)
@@ -65,50 +78,56 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      mason_lspconfig.setup_handlers({
-        -- default handler for installed servers
-        function(server_name)
-          lspconfig[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        ["emmet_ls"] = function()
-          -- configure emmet language server
-          lspconfig["emmet_ls"].setup({
-            capabilities = capabilities,
-            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-          })
-        end,
-        ["hyprls"] = function()
-          lspconfig["hyprls"].setup({
-            capabilities = capabilities,
-            filetypes = { "hyprland" },
-          })
-        end,
-        ["lua_ls"] = function()
-          -- configure lua server (with special settings)
-          lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                -- make the language server recognize "vim" global
-                diagnostics = {
-                  globals = { "vim" },
-                },
-                workspace = {
-                  -- make language server aware of runtime files
-                  library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.stdpath("config") .. "/lua"] = true,
-                  },
-                },
-                completion = {
-                  callSnippet = "Replace",
-                },
+      vim_lsp.config("*", {
+        capabilities = capabilities,
+      })
+      vim_lsp.config("pyright", {
+        capabilities = capabilities,
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              -- Ignore all files for analysis to exclusively use Ruff for linting
+              ignore = { "*" },
+            },
+          },
+        },
+      })
+      vim_lsp.config("ruff", {
+        capabilities = capabilities,
+      })
+      vim_lsp.config("emmet_ls", {
+        capabilities = capabilities,
+        filetypes = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
+      })
+      vim_lsp.config("hyprls", {
+        capabilities = capabilities,
+        filetypes = { "hyprland" },
+      })
+      vim_lsp.config("lua_ls", {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = { version = "Lua 5.1" },
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
               },
             },
-          })
-        end,
+            completion = {
+              callSnippet = "Replace",
+            },
+          },
+        },
       })
     end,
   },
@@ -151,7 +170,7 @@ return {
           hide_keyword = true,
           show_file = true,
           folder_level = 2,
-          respect_root = false,
+          respect_root = true,
           color_mode = true,
         },
       })
