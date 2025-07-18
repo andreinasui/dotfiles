@@ -1,6 +1,6 @@
 vim.api.nvim_create_user_command("FormatDisable", function(args)
   if args.bang then
-    -- FormatDisable! will disable formatting just for all buffers
+    -- FormatDisable! will disable formatting for all buffers
     vim.g.disable_autoformat = true
   else
     vim.b.disable_autoformat = true

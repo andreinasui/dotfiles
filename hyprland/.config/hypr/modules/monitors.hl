@@ -2,9 +2,18 @@
 ### MONITORS ###
 ################
 
-# See https://wiki.hyprland.org/Configuring/Monitors/
-# monitor = name, resolution, position, scale
-monitor=DP-1, preferred, 0x0, auto
-monitor=DP-2, preferred, auto, auto
+# See https://wiki.hyprland.org/Configuring/Monitors/#monitor-v2
 
+monitorv2 {
+  output = DP-1
+  position = 0x0
+  mode = preferred
+  scale = auto
+}
 
+monitorv2 {
+  output = DP-2
+  position = auto
+  mode = preferred
+  scale = auto
+}
