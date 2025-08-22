@@ -35,7 +35,7 @@ bind = $mainMod, F, fullscreen
 bind = $mainMod_SHIFT, R, exec, killall -SIGUSR2 waybar
 # Hide waybar
 bind = $mainMod_SHIFT, H, exec, $hide_waybar
-bind = $mainMod, N, exec, swaync-client --toggle-panel
+# bind = $mainMod, N, exec, swaync-client --toggle-panel
 bind = , Print, exec, IMG=$HOME/Screenshots/"$(date +'%Y-%m-%d-%H%M%S_screenshot.png')" && grim -g "$(slurp -w 0 -b 00000088)" $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot
 bind = SHIFT, Print, exec, IMG=$HOME/Screenshots/"$(date +'%Y-%m-%d-%H%M%S_screenshot.png')" && grim -g "$(slurp -w 0 -b 00000088)" - | swappy -f - -o $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot
 

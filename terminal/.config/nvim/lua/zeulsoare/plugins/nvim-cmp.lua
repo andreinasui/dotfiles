@@ -1,17 +1,18 @@
 return {
   "hrsh7th/nvim-cmp",
-		dependencies = {
+  dependencies = {
     "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "saadparwaiz1/cmp_luasnip",
     "lukas-reineke/cmp-under-comparator",
     "hrsh7th/cmp-nvim-lsp-signature-help",
-    {"L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp"},
+    "https://github.com/tzachar/cmp-fuzzy-path",
+    { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
     "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
-		},
+    { "https://github.com/tzachar/fuzzy.nvim", dependencies = "nvim-telescope/telescope-fzf-native.nvim" },
+  },
   event = "InsertEnter",
   config = function()
     local cmp = require("cmp")
@@ -91,29 +92,33 @@ return {
         end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
-        { name = "nvim_lua" },
-        { name = "luasnip", max_item_count = 20, keyword_length = 3 },
-        { name = "path" },
         {
           name = "nvim_lsp",
-          entry_filter = function(entry, ctx)
-            if entry:get_kind() == cmp.lsp.CompletionItemKind.File then
-              return false
-            end
-            if entry:get_kind() == cmp.lsp.CompletionItemKind.Folder then
-              return false
-            end
-            return true
-          end,
+          priority = 8,
+          -- entry_filter = function(entry, ctx)
+          --   if entry:get_kind() == cmp.lsp.CompletionItemKind.File then
+          --     return false
+          --   end
+          --   if entry:get_kind() == cmp.lsp.CompletionItemKind.Folder then
+          --     return false
+          --   end
+          --   return true
+          -- end,
         },
-        { name = "buffer", keyword_length = 3 },
-        { name = "nvim_lsp_signature_help" },
+        { name = "buffer", keyword_length = 3, priority = 7 },
+        { name = "nvim_lua", priority = 6 },
+        { name = "fuzzy_path", priority = 5 },
+        -- { name = "path" },
+        { name = "luasnip", max_item_count = 20, keyword_length = 3, priority = 3 },
+        { name = "nvim_lsp_signature_help", priority = 3 },
       }),
       sorting = {
         comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
+          cmp.config.locality,
+          cmp.config.recently_used,
           cmp.config.compare.score,
+          cmp.config.compare.exact,
+          cmp.config.compare.offset,
           require("cmp-under-comparator").under,
           cmp.config.compare.kind,
           cmp.config.compare.sort_text,
@@ -122,5 +127,5 @@ return {
         },
       },
     })
-  end
+  end,
 }

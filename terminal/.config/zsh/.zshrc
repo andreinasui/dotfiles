@@ -1,7 +1,7 @@
 # export plugins dir variable
 export ZPLUGSDIR="$HOME/.local/share/zsh"
 # Add local user bin to PATH
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 export DOTFILES_DIR="$HOME/dotfiles"
 # History settings
@@ -25,6 +25,8 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 #bindkey -r "^[J"
 #bindkey -r "^[K"
 #bindkey -r "^[L"
+
+typeset -U PATH path
 
 # Source plugins
 source "$ZDOTDIR/plugins.zsh"
@@ -55,11 +57,6 @@ source "$HOME/.aliases" 2>/dev/null
 # ZSH functions path
 fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_functions
 
-
-# ============ PyEnv configuration section ============
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # ============ NodEnv configuration section ============
 export PATH="$HOME/.nodenv/bin:$PATH"

@@ -57,8 +57,5 @@ return {
   config = function()
     local harpoon = require("harpoon")
     harpoon:setup({})
-    -- vim.keymap.set("n", "<leader>hh", function()
-    --   toggle_telescope(harpoon:list())
-    -- end, { desc = "Open harpoon window" })
   end,
 }

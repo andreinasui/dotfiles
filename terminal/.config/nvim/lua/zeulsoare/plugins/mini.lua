@@ -9,4 +9,11 @@ return {
       silent = true,
     },
   },
+  -- {
+  --   "https://github.com/echasnovski/mini.completion",
+  --   version = false,
+  --   config = function()
+  --     require("mini.completion").setup()
+  --   end,
+  -- },
 }
