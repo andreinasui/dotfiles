@@ -24,6 +24,11 @@ general {
     layout = dwindle
 }
 
+ecosystem {
+  no_update_news = false
+  no_donation_nag = true
+}
+
 # https://wiki.hyprland.org/Configuring/Variables/#decoration
 decoration {
     rounding = 10
@@ -119,7 +124,6 @@ input {
 
 # https://wiki.hyprland.org/Configuring/Variables/#gestures
 gestures {
-    workspace_swipe = false
 }
 
 # Example per-device config
@@ -130,7 +134,5 @@ device {
 }
 
 experimental {
-  xx_color_management_v4 = false
+  xx_color_management_v4 = true
 }
-
-

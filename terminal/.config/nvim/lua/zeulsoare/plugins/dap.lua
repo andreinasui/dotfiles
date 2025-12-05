@@ -43,6 +43,36 @@ return {
           },
         },
       }
+      dap.configurations.rust = {
+        -- Divider for the launch.json derived configs
+        {
+          name = "----- ↓ launch.json configs ↓ -----",
+          type = "",
+          request = "launch",
+        },
+        {
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtEntry = true,
+          setupCommands = {
+            {
+              text = "-enable-pretty-printing",
+              description = "enable pretty printing",
+              ignoreFailures = false,
+            },
+          },
+        },
+      }
+      dap.adapters.codelldb = {
+        id = "codelldb",
+        type = "executable",
+        command = "/home/andrei/.local/bin/codelldb/extension/adapter/codelldb",
+      }
       dap.adapters.cppdbg = {
         id = "cppdbg",
         type = "executable",
