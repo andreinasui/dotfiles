@@ -92,3 +92,5 @@ compinit
 [[ ! -f $HOME/.config/zsh/.p10k.zsh ]] || source $HOME/.config/zsh/.p10k.zsh
 export PATH=$PATH:$HOME/.spicetify
 
+# opencode
+export PATH=/home/andrei/.opencode/bin:$PATH
