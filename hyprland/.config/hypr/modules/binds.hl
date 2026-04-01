@@ -6,7 +6,7 @@
 
 # Set programs that you use
 $terminal = kitty
-$menu = wofi --show drun -i -p "Search"
+$menu = wofi --show drun,run -i -p "Search"
 $powermenu = $HOME/.config/hypr/scripts/powermenu.sh
 $hyprshot = $HOME/.config/hypr/scripts/hyprshot/hyprshot
 $hide_waybar = $HOME/.config/hypr/scripts/hide_waybar.sh

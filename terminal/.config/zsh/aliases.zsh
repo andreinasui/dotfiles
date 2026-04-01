@@ -18,8 +18,6 @@ alias kittyconfig="$EDITOR $DOTFILES_DIR/terminal/.config/kitty/"
 alias tmuxconfig="$EDITOR $DOTFILES_DIR/terminal/.config/tmux"
 alias hyprconfig="$EDITOR $DOTFILES_DIR/hyprland/.config/"
 
-alias notes="$EDITOR /home/andrei/notes/"
-
 # easier to read disk
 alias df='df -h'     # human-readable sizes
 alias free='free -m' # show sizes in MB
@@ -50,4 +48,5 @@ alias gp='git push'
 alias gr='git reset'
 alias gst='git status --short'
 alias gu='git pull'
+alias gw='git gtr'
 alias oc='setsid kitty --working-directory="$(pwd)" opencode &'

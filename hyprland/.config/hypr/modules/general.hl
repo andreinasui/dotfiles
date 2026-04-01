@@ -132,7 +132,3 @@ device {
     name = epic-mouse-v1
     sensitivity = -0.5
 }
-
-experimental {
-  xx_color_management_v4 = true
-}

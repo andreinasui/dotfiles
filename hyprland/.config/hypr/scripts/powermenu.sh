@@ -8,7 +8,7 @@ sleep="    Sleep"
 
 # Get answer from user via rofi
 selected_option=$(
-	echo "$logout
+  echo "$logout
 $sleep
 $reboot
 $shutdown" | wofi -dmenu -i -p "Power"
@@ -16,13 +16,13 @@ $shutdown" | wofi -dmenu -i -p "Power"
 
 # Do something based on selected option
 if [ "$selected_option" == "$logout" ]; then
-	hyprctl dispatch exit
+  hyprctl dispatch exit
 elif [ "$selected_option" == "$shutdown" ]; then
-	systemctl poweroff
+  systemctl poweroff
 elif [ "$selected_option" == "$reboot" ]; then
-	systemctl reboot
+  systemctl reboot
 elif [ "$selected_option" == "$sleep" ]; then
-	systemctl suspend
+  systemctl suspend
 else
-	echo "No match"
+  echo "No match"
 fi

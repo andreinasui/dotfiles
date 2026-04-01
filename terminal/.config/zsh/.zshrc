@@ -57,6 +57,8 @@ source "$HOME/.aliases" 2>/dev/null
 # ZSH functions path
 fpath+=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_functions
 
+# ============ Custom scripts configuration section ============
+export PATH="$HOME/scripts:$PATH"
 
 # ============ NodEnv configuration section ============
 export PATH="$HOME/.nodenv/bin:$PATH"
@@ -69,7 +71,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$HOME/go/bin:$PATH"
 
-# Shell completions
+# ============ Shell completions =============
 # PNPM is a special case
 [[ -f "$ZDOTDIR/completions/_pnpm.zsh" ]] && source "$ZDOTDIR/completions/_pnpm.zsh" || true
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -78,6 +80,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Git gtr (worktrees helper) - https://github.com/coderabbitai/git-worktree-runner
+eval "$(git gtr init zsh)"
+eval "$(git gtr completion zsh)"
 
 fpath+=$ZDOTDIR/completions
 fpath+=$ZDOTDIR/completions/distrobox
@@ -94,3 +100,9 @@ export PATH=$PATH:$HOME/.spicetify
 
 # opencode
 export PATH=/home/andrei/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/home/andrei/.bun/_bun" ] && source "/home/andrei/.bun/_bun"
+
+# opencode
+export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH

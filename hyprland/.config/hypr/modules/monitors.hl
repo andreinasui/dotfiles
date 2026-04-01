@@ -4,23 +4,20 @@
 
 # See https://wiki.hyprland.org/Configuring/Monitors/#monitor-v2
 
-# monitorv2 {
-#   output = DP-1
-#   position = 0x0
-#   mode = preferred
-#   scale = auto
-# }
 monitorv2 {
   output = DP-1
   position = 0x0
   mode = preferred
   scale = auto
-  # cm = hdr
-  sdrbrightness = 1.05
+  cm = hdr
+  sdrbrightness = 1.0
   sdrsaturation = 1.0
   bitdepth = 10 
-  supports_wide_color = true
-  supports_hdr = true
+  supports_wide_color = 1
+  supports_hdr = 1
+  sdr_min_luminance = 0.005
+  sdr_max_luminance = 150
+
 }
 
 monitorv2 {
@@ -28,4 +25,7 @@ monitorv2 {
   position = auto
   mode = preferred
   scale = auto
+  cm = auto
+  supports_wide_color = 0
+  supports_hdr = 0
 }

@@ -8,8 +8,8 @@ return {
       suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     })
 
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>")
-    keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>")
+    -- local keymap = vim.keymap
+    -- keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>")
+    -- keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>")
   end,
 }
