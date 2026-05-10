@@ -114,13 +114,14 @@ return {
             runtime = { version = "Lua 5.1" },
             -- make the language server recognize "vim" global
             diagnostics = {
-              globals = { "vim" },
+              globals = { "vim", "hl" },
             },
             workspace = {
               -- make language server aware of runtime files
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 [vim.fn.stdpath("config") .. "/lua"] = true,
+                ["/usr/share/hypr/stubs/"] = true,
               },
             },
             completion = {

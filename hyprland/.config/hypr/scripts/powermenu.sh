@@ -16,11 +16,11 @@ $shutdown" | wofi -dmenu -i -p "Power"
 
 # Do something based on selected option
 if [ "$selected_option" == "$logout" ]; then
-  hyprctl dispatch exit
+  hyprshutdown
 elif [ "$selected_option" == "$shutdown" ]; then
-  systemctl poweroff
+  hyprshutdown -t "Shutting down..." --post-cmd 'systemctl poweroff'
 elif [ "$selected_option" == "$reboot" ]; then
-  systemctl reboot
+  hyprshutdown -t "Restarting" --post-cmd 'systemctl poweroff'
 elif [ "$selected_option" == "$sleep" ]; then
   systemctl suspend
 else
