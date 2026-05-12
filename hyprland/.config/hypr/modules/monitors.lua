@@ -9,14 +9,6 @@ hl.monitor({
 	position = "0x0",
 	mode = "prefered",
 	scale = "auto",
-	cm = "hdr",
-	sdrbrightness = 1.0,
-	sdrsaturation = 1.0,
-	bitdepth = 10,
-	supports_wide_color = 0,
-	supports_hdr = 0,
-	sdr_min_luminance = 0.005,
-	sdr_max_luminance = 150,
 })
 
 hl.monitor({

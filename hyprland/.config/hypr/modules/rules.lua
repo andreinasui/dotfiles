@@ -69,3 +69,12 @@ hl.window_rule({
 
 	no_focus = true,
 })
+
+hl.window_rule({
+	match = { class = "^(xwaylandvideobridge)$" },
+	opacity = 0.0,
+	no_focus = true,
+	no_initial_focus = true,
+	no_blur = true,
+	max_size = { 1, 1 },
+})

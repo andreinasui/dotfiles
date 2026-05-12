@@ -34,6 +34,4 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("gsettings set " .. gnomeSchema .. ' cursor-theme "Gruvbox-Material-Dark"')
 	hl.exec_cmd("gsettings set " .. gnomeSchema .. ' font-name "Gruvbox-Material-Dark"')
 	hl.exec_cmd("gsettings set " .. gnomeSchema .. ' color-scheme "prefer-dark"')
-	-- For screenshare
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
