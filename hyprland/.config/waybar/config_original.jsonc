@@ -1,161 +1,190 @@
 [
   {
     "layer": "top", // Waybar at top layer
-    "output": ["DP-2"],
+    "output": [
+      "DP-2"
+    ],
     "position": "top", // Waybar at the bottom of your screen
     "margin-top": 8,
     "margin-left": 10,
     "margin-right": 10,
-
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["clock", "custom/weather", "custom/spotify"],
-    "modules-right": ["custom/notification", "pulseaudio", "tray"],
-
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/submap"
+    ],
+    "modules-center": [
+      "clock",
+      "custom/weather",
+      "custom/spotify"
+    ],
+    "modules-right": [
+      "custom/notification",
+      "pulseaudio",
+      "tray"
+    ],
     //***************************
     //*  Modules configuration  *
     //***************************
-
     "hyprland/workspaces": {
       "disable-scroll": true,
       "all-outputs": true,
     },
-
     "tray": {
       "icon-size": 16,
       "spacing": 8,
     },
-
     "clock": {
       "format": "{:%a, %d %b, %H:%M}",
-      "tooltip": false,
-    },
-
-    "custom/weather": {
-      "format": "{}",
       "tooltip": true,
-      "interval": 60,
-      "exec": "$HOME/.config/waybar/scripts/weather.py",
-      "return-type": "json",
-    },
-
-    "cpu": {
-      "format": "{usage}% ",
-    },
-
-    "pulseaudio": {
-      //"scroll-step": 1,
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-bluetooth-muted": "{icon} {format_source}",
-      "format-muted": "",
-      "format-icons": {
-        "headphones": "",
-        "phone": "",
-        "default": ["", ""],
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "on-click": "gnome-calendar",
+      "calendar": {
+        "mode": "year",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
       },
-      "on-click": "pavucontrol",
-    },
-    "custom/spotify": {
-      "format": " {}",
-      "max-length": 30,
-      "interval": 1,
-      "escape": true,
-      "on-click-middle": "playerctl -p spotify play-pause",
-      "on-click": "playerctl -p spotify next",
-      "on-click-right": "playerctl -p spotify previous",
-      "exec": "$HOME/.config/waybar/scripts/spotify_player.sh 2> /dev/null", // Script in resources/custom_modules folder
-      "exec-if": "pgrep spotify",
-    },
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": "",
+      "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/scripts/weather.py",
+        "return-type": "json",
       },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true,
-    },
-  },
-  {
-    "layer": "top", // Waybar at top layer
-    "output": ["DP-1"],
-    "position": "top", // Waybar at the bottom of your screen
-    "margin-top": 8,
-    "margin-left": 10,
-    "margin-right": 10,
-
-    // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["clock", "custom/weather"],
-    "modules-right": ["custom/notification", "pulseaudio"],
-
-    //***************************
-    //*  Modules configuration  *
-    //***************************
-
-    "hyprland/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": true,
-    },
-
-    "clock": {
-      "format": "{:%a, %d %b, %H:%M}",
-      "tooltip": false,
-    },
-
-    "custom/weather": {
-      "format": "{}",
-      "tooltip": true,
-      "interval": 60,
-      "exec": "$HOME/.config/waybar/scripts/weather.py",
-      "return-type": "json",
-    },
-
-    "pulseaudio": {
-      //"scroll-step": 1,
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-bluetooth-muted": "{icon} {format_source}",
-      "format-muted": "",
-      "format-icons": {
-        "headphones": "",
-        "phone": "",
-        "default": ["", ""],
+      "cpu": {
+        "format": "{usage}% ",
       },
-      "on-click": "pavucontrol",
-    },
-
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": "",
+      "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "",
+        "format-icons": {
+          "headphones": "",
+          "phone": "",
+          "default": [
+            "",
+            ""
+          ],
+        },
+        "on-click": "pavucontrol",
       },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true,
+      "custom/spotify": {
+        "format": " {}",
+        "max-length": 30,
+        "interval": 1,
+        "escape": true,
+        "on-click-middle": "playerctl -p spotify play-pause",
+        "on-click": "playerctl -p spotify next",
+        "on-click-right": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:^(spotify)$\"})'",
+        "exec": "$HOME/.config/waybar/scripts/spotify_player.sh 2> /dev/null", // Script in resources/custom_modules folder
+        "exec-if": "pgrep spotify",
+      },
+      "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": "",
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+      },
     },
-  },
-]
+    {
+      "layer": "top", // Waybar at top layer
+      "output": [
+        "DP-1"
+      ],
+      "position": "top", // Waybar at the bottom of your screen
+      "margin-top": 8,
+      "margin-left": 10,
+      "margin-right": 10,
+      // Choose the order of the modules
+      "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+      ],
+      "modules-center": [
+        "clock",
+        "custom/weather"
+      ],
+      "modules-right": [
+        "custom/notification",
+        "pulseaudio"
+      ],
+      //***************************
+      //*  Modules configuration  *
+      //***************************
+      "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+      },
+      "clock": {
+        "format": "{:%a, %d %b, %H:%M}",
+        "tooltip": false,
+      },
+      "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 60,
+        "exec": "$HOME/.config/waybar/scripts/weather.py",
+        "return-type": "json",
+      },
+      "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "",
+        "format-icons": {
+          "headphones": "",
+          "phone": "",
+          "default": [
+            "",
+            ""
+          ],
+        },
+        "on-click": "pavucontrol",
+      },
+      "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": "",
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+      },
+    },
+  ]

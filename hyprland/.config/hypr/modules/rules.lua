@@ -30,6 +30,11 @@ hl.window_rule({
 	},
 	workspace = 9,
 })
+
+hl.dispatch(hl.dsp.focus({
+	window = "class:^(spotify)$",
+}))
+
 hl.window_rule({
 	match = {
 		class = "^(steam)$",
