@@ -19,6 +19,12 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("killall -SIGUSR2 waybar"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd(hide_waybar))
 hl.bind(mainMod .. " + P", hl.dsp.workspace.move({ monitor = "+1", follow = true }))
 hl.bind(
+	"CTRL + Print",
+	hl.dsp.exec_cmd(
+		'IMG=$HOME/Screenshots/"$(date +\'%Y-%m-%d-%H%M%S_screenshot.png\')" && grim $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot'
+	)
+)
+hl.bind(
 	"Print",
 	hl.dsp.exec_cmd(
 		'IMG=$HOME/Screenshots/"$(date +\'%Y-%m-%d-%H%M%S_screenshot.png\')" && grim -g "$(slurp -w 0 -b 00000088)" $IMG && wl-copy < $IMG && notify-send "Screenshot taken" "Image copied to the clipboard\nImage saved to $IMG" -t 5000 -i $IMG -a Screenshot'

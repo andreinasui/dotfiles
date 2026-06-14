@@ -4,7 +4,7 @@
 
 return {
 	terminal = "kitty",
-	menu = 'wofi --show drun,run -i -p "Search"',
+	menu = 'wofi --show drun -i -p "Search"',
 	powermenu = "$HOME/.config/hypr/scripts/powermenu.sh",
 	hyprshot = "$HOME/.config/hypr/scripts/hyprshot/hyprshot",
 
