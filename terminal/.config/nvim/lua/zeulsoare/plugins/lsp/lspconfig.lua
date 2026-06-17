@@ -74,7 +74,7 @@ return {
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
       -- set debug log level to lsp
-      vim_lsp.set_log_level("warn")
+      vim_lsp.log.set_level("warn")
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       -- (not in youtube nvim video)
@@ -98,6 +98,35 @@ return {
             analysis = {
               -- Ignore all files for analysis to exclusively use Ruff for linting
               ignore = { "*" },
+            },
+          },
+        },
+      })
+      vim_lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = true,
+            check = {
+              command = "clippy", -- Use clippy instead of cargo check
+              extraArgs = { "--no-deps" }, -- Don't re-check external dependencies
+              allTargets = false, -- Don't check tests/benches/examples on every save
+            },
+            cachePriming = {
+              enable = false, -- Enable cache priming to speed up initial analysis
+            },
+            diagnostics = {
+              enable = true,
+              disabled = { "unresolved-proc-macro" },
+              experimental = {
+                enable = false, -- Turn off experimental diagnostics which can be spammy
+              },
+            },
+            files = {
+              excludeDirs = { ".cargo", ".git", "target" }, -- Strictly ignore these
+            },
+            inlayHints = {
+              enable = false, -- If you don't need them, turning this off saves massive CPU
             },
           },
         },
