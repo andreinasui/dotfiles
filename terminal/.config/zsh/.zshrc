@@ -103,9 +103,3 @@ export PATH=/home/andrei/.opencode/bin:$PATH
 
 # bun completions
 [ -s "/home/andrei/.bun/_bun" ] && source "/home/andrei/.bun/_bun"
-
-# opencode
-# export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH
-
-# opencode
-export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH
