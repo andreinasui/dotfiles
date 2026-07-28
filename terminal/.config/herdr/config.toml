@@ -15,7 +15,8 @@ auto_switch = false
 prefix = "ctrl+a"
 split_vertical = "prefix+|"
 zoom = "prefix+m"
-toggle_sidebar = "prefix+p"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
 
 [[keys.command]]
 key = "prefix+ctrl+p"
@@ -23,6 +24,30 @@ type = "popup"
 command = "python"
 width = "80%"
 height = "80%"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "vim-herdr-navigation.left"
+description = "navigate left (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "vim-herdr-navigation.down"
+description = "navigate down (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "vim-herdr-navigation.up"
+description = "navigate up (vim/herdr)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "vim-herdr-navigation.right"
+description = "navigate right (vim/herdr)"
 
 
 [experimental]

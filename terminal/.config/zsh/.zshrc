@@ -81,10 +81,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Git gtr (worktrees helper) - https://github.com/coderabbitai/git-worktree-runner
-eval "$(git gtr init zsh)"
-eval "$(git gtr completion zsh)"
-
 fpath+=$ZDOTDIR/completions
 fpath+=$ZDOTDIR/completions/distrobox
 autoload -U compinit
@@ -104,5 +100,4 @@ export PATH=/home/andrei/.opencode/bin:$PATH
 # bun completions
 [ -s "/home/andrei/.bun/_bun" ] && source "/home/andrei/.bun/_bun"
 
-# opencode
-export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

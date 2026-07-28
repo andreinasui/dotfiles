@@ -16,7 +16,7 @@ alias p10kconfig="$EDITOR $ZDOTDIR/.p10k.zsh"
 alias nvimconfig="$EDITOR $DOTFILES_DIR/terminal/.config/nvim"
 alias kittyconfig="$EDITOR $DOTFILES_DIR/terminal/.config/kitty/"
 alias tmuxconfig="$EDITOR $DOTFILES_DIR/terminal/.config/tmux"
-alias herdrconfig="$EDITOR $DOTFILES_DIR/terminal/.config/herd"
+alias herdrconfig="$EDITOR $DOTFILES_DIR/terminal/.config/herdr/config.toml"
 alias hyprconfig="$EDITOR $DOTFILES_DIR/hyprland/.config/"
 
 # easier to read disk
