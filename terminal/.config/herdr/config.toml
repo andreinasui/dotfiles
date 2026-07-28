@@ -1,0 +1,29 @@
+onboarding = false
+[ui]
+show_agent_labels_on_pane_borders = true
+sidebar_collapsed_mode = "hidden"
+pane_gaps = false
+
+[ui.toast]
+delivery = "system"
+
+[theme]
+name = "vesper"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+a"
+split_vertical = "prefix+|"
+zoom = "prefix+m"
+toggle_sidebar = "prefix+p"
+
+[[keys.command]]
+key = "prefix+ctrl+p"
+type = "popup"
+command = "python"
+width = "80%"
+height = "80%"
+
+
+[experimental]
+pane_history = true
