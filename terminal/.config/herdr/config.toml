@@ -49,6 +49,29 @@ type = "plugin_action"
 command = "vim-herdr-navigation.right"
 description = "navigate right (vim/herdr)"
 
+# Override herdr's built-in "new worktree" key (prefix+shift+g) with worktrunk's
+# default-branch switch/create picker:
+[[keys.command]]
+key = "prefix+shift+g"
+type = "plugin_action"
+command = "worktrunk.open"
+description = "Worktree: switch / create from default branch"
+
+# Optional: bind current-branch creation separately.
+[[keys.command]]
+key = "prefix+shift+c"
+type = "plugin_action"
+command = "worktrunk.open-current"
+description = "Worktree: switch / create from current branch"
+
+[[keys.command]]
+key = "prefix+shift+d"
+type = "plugin_action"
+command = "worktrunk.remove"
+description = "Worktree: remove"
 
 [experimental]
 pane_history = true
+
+[advanced]
+scrollback_limit_bytes = 100000000

@@ -97,7 +97,14 @@ export PATH=$PATH:$HOME/.spicetify
 # opencode
 export PATH=/home/andrei/.opencode/bin:$PATH
 
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # bun completions
 [ -s "/home/andrei/.bun/_bun" ] && source "/home/andrei/.bun/_bun"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# opencode
+export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
