@@ -62,6 +62,9 @@ hl.config({
 		font_family = "RobotoMonoNerdFont",
 		vrr = 2,
 	},
+	cursor = {
+		no_warps = true,
+	},
 
 	input = {
 		kb_layout = "ro",

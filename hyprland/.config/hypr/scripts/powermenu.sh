@@ -20,7 +20,7 @@ if [ "$selected_option" == "$logout" ]; then
 elif [ "$selected_option" == "$shutdown" ]; then
   hyprshutdown -t "Shutting down..." --post-cmd 'systemctl poweroff'
 elif [ "$selected_option" == "$reboot" ]; then
-  hyprshutdown -t "Restarting" --post-cmd 'systemctl poweroff'
+  hyprshutdown -t "Restarting" --post-cmd 'systemctl reboot'
 elif [ "$selected_option" == "$sleep" ]; then
   systemctl suspend
 else
