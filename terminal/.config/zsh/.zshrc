@@ -104,7 +104,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
-# opencode
-export PATH=/home/andrei/Work/px13/.opencode/bin:$PATH
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -19,8 +19,6 @@ hl.config({
 		resize_on_border = true,
 
 		allow_tearing = false,
-
-		layout = "dwindle",
 	},
 
 	ecosystem = {
@@ -49,23 +47,12 @@ hl.config({
 		enabled = true,
 	},
 
-	dwindle = {
-		preserve_split = true,
-	},
-	master = {
-		new_status = "master",
-	},
-
 	misc = {
 		force_default_wallpaper = 0,
 		disable_hyprland_logo = true,
 		font_family = "RobotoMonoNerdFont",
 		vrr = 2,
 	},
-	cursor = {
-		no_warps = true,
-	},
-
 	input = {
 		kb_layout = "ro",
 		kb_variant = "",

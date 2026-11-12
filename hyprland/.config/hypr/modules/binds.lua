@@ -1,6 +1,7 @@
 -- See https://wiki.hyprland.org/Configuring/Keywords/
 
 local vars = require("modules.variables")
+local layout = require("modules.layout")
 local terminal = vars.terminal
 local menu = vars.menu
 local powermenu = vars.powermenu
@@ -12,7 +13,8 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(powermenu))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind(mainMod .. " + F", layout.toggle_fullscreen)
+hl.bind(mainMod .. " + G", layout.toggle_overview)
 -- Reload waybar
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("killall -SIGUSR2 waybar"))
 -- Hide waybar
@@ -42,6 +44,11 @@ hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
+
+-- Scrolling layout: reset every column on the workspace to the default width
+hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.layout("colresize all " .. layout.column_width))
+hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf"))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]

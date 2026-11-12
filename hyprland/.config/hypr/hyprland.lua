@@ -1,5 +1,6 @@
 require("modules.monitors")
 require("modules.general")
+require("modules.layout")
 require("modules.binds")
 require("modules.rules")
 require("modules.env")
@@ -14,6 +15,8 @@ local spotify = vars.spotify
 local gnomeSchema = "org.gnome.desktop.interface"
 
 hl.on("hyprland.start", function()
+	-- Load hyprpm plugins, then reload so their settings in the modules apply.
+	hl.exec_cmd("hyprpm reload && hyprctl reload")
 	hl.exec_cmd(terminal, { workspace = 1 })
 	hl.exec_cmd(browser, { workspace = 2 })
 	hl.exec_cmd(teams, { workspace = 3 })

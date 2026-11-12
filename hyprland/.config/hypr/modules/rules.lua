@@ -12,6 +12,12 @@ hl.workspace_rule({ workspace = "8", monitor = "DP-2" })
 hl.workspace_rule({ workspace = "9", monitor = "DP-2" })
 hl.workspace_rule({ workspace = "10", monitor = "DP-2" })
 
+-- Keep the startup terminal focused while the other apps open.
+hl.window_rule({
+	match = { class = "^(zen|com\\.github\\.IsmaelMartinez\\.teams_for_linux|spotify|vesktop|steam)$" },
+	no_initial_focus = true,
+})
+
 hl.window_rule({
 	match = {
 		class = "^(.*teams_for_linux.*)$",
@@ -73,6 +79,8 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "^(xwaylandvideobridge)$" },
+	float = true, -- tiled, it would take a scrolling column
+	no_anim = true,
 	opacity = 0.0,
 	no_focus = true,
 	no_initial_focus = true,
