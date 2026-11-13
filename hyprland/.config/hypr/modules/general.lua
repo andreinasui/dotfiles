@@ -53,6 +53,12 @@ hl.config({
 		font_family = "RobotoMonoNerdFont",
 		vrr = 2,
 	},
+
+	render = {
+		-- DP-1 is HDR-capable; don't flip it into HDR when a fullscreen app asks for it.
+		cm_auto_hdr = 0,
+	},
+
 	input = {
 		kb_layout = "ro",
 		kb_variant = "",
